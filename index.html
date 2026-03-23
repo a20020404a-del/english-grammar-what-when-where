@@ -1,0 +1,1421 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>関係詞・接続詞文の作り方 — What / When / Where / Which / How</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,700;1,400&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy:    #0d1b2a;
+    --navy2:   #162032;
+    --navy3:   #1e2f45;
+    --gold:    #c9a84c;
+    --gold2:   #e2c47a;
+    --cream:   #f5efe0;
+    --cream2:  #faf6ed;
+    --text:    #2c2c2c;
+    --muted:   #7a8a9a;
+    --accent1: #4a7fa5;   /* what  – 青 */
+    --accent2: #7a9e6b;   /* when  – 緑 */
+    --accent3: #c0613a;   /* where – 赤橙 */
+    --accent4: #7b5ea7;   /* which – 紫 */
+    --accent5: #c09d3f;   /* how   – 金 */
+    --shadow:  0 4px 24px rgba(13,27,42,.18);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Noto Sans JP', sans-serif;
+    background: var(--cream2);
+    color: var(--text);
+    line-height: 1.8;
+    font-size: 15px;
+  }
+
+  /* ─── HEADER ─────────────────────────────────────── */
+  header {
+    background: var(--navy);
+    color: var(--cream);
+    padding: 56px 40px 48px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: repeating-linear-gradient(
+      45deg,
+      transparent 0px,
+      transparent 18px,
+      rgba(201,168,76,.06) 18px,
+      rgba(201,168,76,.06) 19px
+    );
+  }
+  header .badge {
+    display: inline-block;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    font-size: 11px;
+    letter-spacing: .2em;
+    padding: 4px 14px;
+    border-radius: 2px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    position: relative;
+  }
+  header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 5vw, 46px);
+    line-height: 1.2;
+    color: var(--cream);
+    position: relative;
+  }
+  header h1 span { color: var(--gold2); }
+  header p.subtitle {
+    margin-top: 14px;
+    color: var(--muted);
+    font-size: 14px;
+    letter-spacing: .05em;
+    position: relative;
+  }
+  .keywords {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 28px;
+    position: relative;
+  }
+  .kw {
+    background: var(--navy3);
+    border: 1px solid var(--gold);
+    color: var(--gold2);
+    font-family: 'Fira Code', monospace;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 6px 18px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all .2s;
+  }
+  .kw:hover { background: var(--gold); color: var(--navy); }
+
+  /* ─── NAV TABS ───────────────────────────────────── */
+  .tab-nav {
+    display: flex;
+    overflow-x: auto;
+    background: var(--navy2);
+    border-bottom: 2px solid var(--navy3);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    scrollbar-width: none;
+  }
+  .tab-nav::-webkit-scrollbar { display: none; }
+  .tab-btn {
+    flex: 0 0 auto;
+    background: none;
+    border: none;
+    color: var(--muted);
+    padding: 14px 22px;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: .08em;
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+    transition: all .2s;
+    white-space: nowrap;
+    position: relative;
+    top: 2px;
+  }
+  .tab-btn:hover { color: var(--cream); }
+  .tab-btn.active { color: var(--gold); border-bottom-color: var(--gold); }
+  .tab-btn[data-tab="what"].active   { color: var(--accent1); border-bottom-color: var(--accent1); }
+  .tab-btn[data-tab="when"].active   { color: var(--accent2); border-bottom-color: var(--accent2); }
+  .tab-btn[data-tab="where"].active  { color: var(--accent3); border-bottom-color: var(--accent3); }
+  .tab-btn[data-tab="which"].active  { color: var(--accent4); border-bottom-color: var(--accent4); }
+  .tab-btn[data-tab="how"].active    { color: var(--accent5); border-bottom-color: var(--accent5); }
+  .tab-btn[data-tab="table"].active  { color: var(--gold);   border-bottom-color: var(--gold); }
+  .tab-btn[data-tab="quiz"].active   { color: #e07070;       border-bottom-color: #e07070; }
+
+  /* ─── CONTENT ────────────────────────────────────── */
+  .container { max-width: 880px; margin: 0 auto; padding: 0 20px 80px; }
+  .tab-panel { display: none; padding-top: 40px; }
+  .tab-panel.active { display: block; }
+
+  /* ─── SECTION HEADERS ─────────────────────────────── */
+  .sec-head {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 32px;
+    padding-bottom: 16px;
+    border-bottom: 2px solid;
+  }
+  .sec-icon {
+    width: 56px; height: 56px;
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Fira Code', monospace;
+    font-size: 22px;
+    font-weight: 700;
+    color: #fff;
+    flex-shrink: 0;
+  }
+  .sec-head h2 { font-family: 'Playfair Display', serif; font-size: 28px; }
+  .sec-head .en { font-family: 'Fira Code', monospace; font-size: 13px; opacity: .6; margin-top: 2px; }
+
+  /* accent colors per section */
+  #what  .sec-head { border-color: var(--accent1); }
+  #what  .sec-icon { background: var(--accent1); }
+  #when  .sec-head { border-color: var(--accent2); }
+  #when  .sec-icon { background: var(--accent2); }
+  #where .sec-head { border-color: var(--accent3); }
+  #where .sec-icon { background: var(--accent3); }
+  #which .sec-head { border-color: var(--accent4); }
+  #which .sec-icon { background: var(--accent4); }
+  #how   .sec-head { border-color: var(--accent5); }
+  #how   .sec-icon { background: var(--accent5); }
+
+  /* ─── RULE CARD ──────────────────────────────────── */
+  .rule-card {
+    background: var(--navy);
+    color: var(--cream);
+    border-radius: 10px;
+    padding: 22px 26px;
+    margin-bottom: 24px;
+    border-left: 4px solid var(--gold);
+  }
+  .rule-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 17px;
+    color: var(--gold2);
+    margin-bottom: 8px;
+  }
+  .rule-card p { font-size: 14px; line-height: 1.9; color: #c8d8e8; }
+  .rule-card .formula {
+    background: rgba(255,255,255,.06);
+    border: 1px solid rgba(201,168,76,.3);
+    border-radius: 6px;
+    padding: 10px 16px;
+    font-family: 'Fira Code', monospace;
+    font-size: 13px;
+    color: var(--gold2);
+    margin-top: 10px;
+  }
+
+  /* ─── EXAMPLE LIST ───────────────────────────────── */
+  .ex-list { list-style: none; margin-bottom: 24px; }
+  .ex-list li {
+    background: #fff;
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin-bottom: 10px;
+    border-left: 3px solid var(--cream);
+    box-shadow: 0 1px 4px rgba(0,0,0,.06);
+    transition: box-shadow .2s;
+  }
+  .ex-list li:hover { box-shadow: 0 3px 12px rgba(0,0,0,.1); }
+  .ex-list .en-sent {
+    font-family: 'Fira Code', monospace;
+    font-size: 14px;
+    color: var(--navy);
+    font-weight: 500;
+    line-height: 1.6;
+  }
+  .ex-list .en-sent em { font-style: normal; text-decoration: underline; text-decoration-color: var(--gold); text-underline-offset: 3px; }
+  .ex-list .ja-sent { font-size: 13px; color: #666; margin-top: 4px; }
+  .ex-list .level-badge {
+    float: right;
+    font-size: 10px;
+    letter-spacing: .1em;
+    padding: 2px 8px;
+    border-radius: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+  .lv-basic { background: #d4edda; color: #155724; }
+  .lv-mid   { background: #fff3cd; color: #856404; }
+  .lv-adv   { background: #f8d7da; color: #721c24; }
+
+  /* accent borders per section */
+  #what  .ex-list li { border-left-color: var(--accent1); }
+  #when  .ex-list li { border-left-color: var(--accent2); }
+  #where .ex-list li { border-left-color: var(--accent3); }
+  #which .ex-list li { border-left-color: var(--accent4); }
+  #how   .ex-list li { border-left-color: var(--accent5); }
+
+  /* ─── WARN / TIP BOX ─────────────────────────────── */
+  .warn-box, .tip-box {
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    line-height: 1.8;
+  }
+  .warn-box { background: #fff4e5; border-left: 4px solid #e8a030; }
+  .warn-box strong { color: #c47000; }
+  .tip-box  { background: #e8f4fd; border-left: 4px solid var(--accent1); }
+  .tip-box  strong { color: var(--accent1); }
+
+  /* ─── COMPARE TABLE ──────────────────────────────── */
+  .tbl-wrap { overflow-x: auto; margin-bottom: 32px; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13.5px;
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+  }
+  thead { background: var(--navy); color: var(--cream); }
+  thead th { padding: 14px 16px; text-align: left; font-weight: 500; letter-spacing: .05em; }
+  tbody tr { border-bottom: 1px solid #eee; }
+  tbody tr:hover { background: var(--cream2); }
+  tbody td { padding: 12px 16px; vertical-align: top; }
+  tbody td:first-child { font-family: 'Fira Code', monospace; font-weight: 700; font-size: 15px; }
+  .chip {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .05em;
+    margin: 2px 2px 2px 0;
+  }
+
+  /* ─── QUIZ ───────────────────────────────────────── */
+  .quiz-section { margin-bottom: 40px; }
+  .quiz-section h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    color: var(--navy);
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #ddd;
+  }
+  .q-card {
+    background: #fff;
+    border-radius: 10px;
+    padding: 18px 22px;
+    margin-bottom: 14px;
+    box-shadow: 0 2px 8px rgba(0,0,0,.07);
+    border-left: 3px solid #ddd;
+  }
+  .q-card.basic { border-left-color: #4caf50; }
+  .q-card.mid   { border-left-color: #ff9800; }
+  .q-card.adv   { border-left-color: #f44336; }
+  .q-num {
+    display: inline-block;
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: .1em;
+    margin-bottom: 6px;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+  .q-text {
+    font-family: 'Fira Code', monospace;
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--navy);
+    margin-bottom: 8px;
+  }
+  .q-text .blank {
+    display: inline-block;
+    min-width: 80px;
+    border-bottom: 2px solid var(--gold);
+    text-align: center;
+    color: var(--gold);
+    font-weight: 700;
+  }
+  .q-ja { font-size: 13px; color: #666; margin-bottom: 10px; }
+  details summary {
+    cursor: pointer;
+    font-size: 13px;
+    color: var(--accent1);
+    font-weight: 500;
+    padding: 6px 0;
+    user-select: none;
+  }
+  details summary:hover { color: var(--navy); }
+  details[open] summary { color: var(--navy); }
+  .answer-box {
+    background: var(--navy);
+    color: var(--cream);
+    border-radius: 6px;
+    padding: 12px 16px;
+    margin-top: 8px;
+    font-family: 'Fira Code', monospace;
+    font-size: 13px;
+    line-height: 1.7;
+  }
+  .answer-box em { color: var(--gold2); font-style: normal; font-weight: 700; }
+  .answer-box .exp { color: #a0c0d8; font-size: 12px; margin-top: 4px; }
+
+  /* ─── SUB-HEADING ────────────────────────────────── */
+  .sub-h { font-size: 16px; font-weight: 700; margin: 28px 0 12px; color: var(--navy); border-left: 4px solid var(--gold); padding-left: 10px; }
+
+  /* ─── GRID LAYOUT ────────────────────────────────── */
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+  @media (max-width: 600px) { .grid-2 { grid-template-columns: 1fr; } }
+
+  /* ─── PRINT ──────────────────────────────────────── */
+  @media print {
+    .tab-nav, header .keywords { display: none; }
+    .tab-panel { display: block !important; page-break-before: always; }
+    .tab-panel:first-of-type { page-break-before: avoid; }
+    body { background: #fff; font-size: 13px; }
+    .rule-card { background: #f0f4f8; color: #111; border: 1px solid #ccc; }
+    .rule-card p, .rule-card h3 { color: #111; }
+    .rule-card .formula { background: #e8eef4; color: #333; }
+    header { background: #1a2a3a; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══════════════ HEADER ══════════════ -->
+<header>
+  <div class="badge">Adult English Grammar</div>
+  <h1>関係詞・接続詞文の作り方<br><span>What · When · Where · Which · How</span></h1>
+  <p class="subtitle">大人のための実践英文法 — 用法・例文・練習問題を完全収録</p>
+  <div class="keywords">
+    <span class="kw" onclick="switchTab('what')">What</span>
+    <span class="kw" onclick="switchTab('when')">When</span>
+    <span class="kw" onclick="switchTab('where')">Where</span>
+    <span class="kw" onclick="switchTab('which')">Which</span>
+    <span class="kw" onclick="switchTab('how')">How</span>
+    <span class="kw" onclick="switchTab('table')">比較表</span>
+    <span class="kw" onclick="switchTab('quiz')">練習問題</span>
+  </div>
+</header>
+
+<!-- ══════════════ TAB NAV ══════════════ -->
+<nav class="tab-nav">
+  <button class="tab-btn active" data-tab="what"  onclick="switchTab('what')">① What</button>
+  <button class="tab-btn"        data-tab="when"  onclick="switchTab('when')">② When</button>
+  <button class="tab-btn"        data-tab="where" onclick="switchTab('where')">③ Where</button>
+  <button class="tab-btn"        data-tab="which" onclick="switchTab('which')">④ Which</button>
+  <button class="tab-btn"        data-tab="how"   onclick="switchTab('how')">⑤ How</button>
+  <button class="tab-btn"        data-tab="table" onclick="switchTab('table')">📊 比較対照表</button>
+  <button class="tab-btn"        data-tab="quiz"  onclick="switchTab('quiz')">✏️ 練習問題</button>
+</nav>
+
+<!-- ══════════════ CONTAINER ══════════════ -->
+<div class="container">
+
+<!-- ────────────────────────────────────────────────
+     ① WHAT
+──────────────────────────────────────────────── -->
+<section id="what" class="tab-panel active">
+  <div class="sec-head">
+    <div class="sec-icon">W</div>
+    <div>
+      <h2>What — 関係代名詞・名詞節</h2>
+      <div class="en">Nominal Relative Pronoun</div>
+    </div>
+  </div>
+
+  <div class="rule-card">
+    <h3>核心ルール：what = the thing(s) which / that</h3>
+    <p><strong>what</strong> は先行詞（名詞）を含んだ関係代名詞です。<br>
+    「～すること・もの」という <em>名詞のかたまり</em> を作り、文中で <strong>主語・目的語・補語</strong> のどれにでもなれます。</p>
+    <div class="formula">what + S + V  →  "the thing(s) that + S + V" に言い換え可</div>
+  </div>
+
+  <div class="sub-h">① 主語として使う（文の主語になる）</div>
+  <ul class="ex-list">
+    <li>
+      <span class="level-badge lv-basic">基礎</span>
+      <div class="en-sent"><em>What</em> he said surprised everyone.</div>
+      <div class="ja-sent">彼が言ったことは全員を驚かせた。（= The thing that he said surprised everyone.）</div>
+    </li>
+    <li>
+      <span class="level-badge lv-basic">基礎</span>
+      <div class="en-sent"><em>What</em> matters most is your effort.</div>
+      <div class="ja-sent">最も重要なのはあなたの努力だ。</div>
+    </li>
+    <li>
+      <span class="level-badge lv-mid">中級</span>
+      <div class="en-sent"><em>What</em> they discovered changed the course of science.</div>
+      <div class="ja-sent">彼らが発見したことが科学の方向性を変えた。</div>
+    </li>
+  </ul>
+
+  <div class="sub-h">② 目的語として使う（動詞・前置詞の目的語）</div>
+  <ul class="ex-list">
+    <li>
+      <span class="level-badge lv-basic">基礎</span>
+      <div class="en-sent">I don't understand <em>what</em> you mean.</div>
+      <div class="ja-sent">あなたが何を意味するのか分かりません。</div>
+    </li>
+    <li>
+      <span class="level-badge lv-basic">基礎</span>
+      <div class="en-sent">She told me <em>what</em> she needed.</div>
+      <div class="ja-sent">彼女は自分が必要なものを私に話してくれた。</div>
+    </li>
+    <li>
+      <span class="level-badge lv-mid">中級</span>
+      <div class="en-sent">Pay attention to <em>what</em> the instructor says.</div>
+      <div class="ja-sent">インストラクターが言うことに注意を払いなさい。（前置詞 to の目的語）</div>
+    </li>
+    <li>
+      <span class="level-badge lv-mid">中級</span>
+      <div class="en-sent">He was proud of <em>what</em> he had accomplished.</div>
+      <div class="ja-sent">彼は自分が成し遂げたことを誇りに思っていた。</div>
+    </li>
+  </ul>
+
+  <div class="sub-h">③ 補語として使う（be 動詞の後）</div>
+  <ul class="ex-list">
+    <li>
+      <span class="level-badge lv-basic">基礎</span>
+      <div class="en-sent">This is <em>what</em> I wanted.</div>
+      <div class="ja-sent">これが私が欲しかったものだ。</div>
+    </li>
+    <li>
+      <span class="level-badge lv-mid">中級</span>
+      <div class="en-sent">Hard work is <em>what</em> brought her success.</div>
+      <div class="ja-sent">彼女に成功をもたらしたのは努力だ。</div>
+    </li>
+    <li>
+      <span class="level-badge lv-adv">応用</span>
+      <div class="en-sent">Consistency is <em>what</em> separates professionals from amateurs.</div>
+      <div class="ja-sent">継続性こそがプロとアマチュアを分けるものだ。</div>
+    </li>
+  </ul>
+
+  <div class="sub-h">④ 重要フレーズ・慣用表現</div>
+  <ul class="ex-list">
+    <li>
+      <span class="level-badge lv-mid">中級</span>
+      <div class="en-sent"><em>What is worse</em>, he didn't apologize.</div>
+      <div class="ja-sent">さらに悪いことに、彼は謝罪しなかった。（"what is + 比較級/形容詞" 構文）</div>
+    </li>
+    <li>
+      <span class="level-badge lv-adv">応用</span>
+      <div class="en-sent">She is not <em>what</em> she used to be.</div>
+      <div class="ja-sent">彼女は昔の彼女ではない。</div>
+    </li>
+    <li>
+      <span class="level-badge lv-adv">応用</span>
+      <div class="en-sent">He gave me <em>what little money</em> he had.</div>
+      <div class="ja-sent">彼は持っていたわずかなお金を私に渡してくれた。（"what + 形容詞 + 名詞" 構文）</div>
+    </li>
+  </ul>
+
+  <div class="warn-box">
+    <strong>⚠ よくある間違い 1：that との混同</strong><br>
+    ✗ <code style="font-family:'Fira Code',monospace">I know <u>that</u> you said.</code>（×  that の後ろに名詞が必要）<br>
+    ✓ <code style="font-family:'Fira Code',monospace">I know <u>what</u> you said.</code>（○）<br><br>
+    <em>that</em> を接続詞として使う場合は後ろに <strong>完全な文</strong>（S＋V）が続きます。<br>
+    <em>what</em> は後ろに <strong>不完全な文</strong>（目的語・主語が欠けた文）が続きます。
+  </div>
+  <div class="warn-box">
+    <strong>⚠ よくある間違い 2："the thing what" は誤り</strong><br>
+    ✗ <code style="font-family:'Fira Code',monospace">This is <u>the thing what</u> I wanted.</code><br>
+    ✓ <code style="font-family:'Fira Code',monospace">This is <u>what</u> I wanted.</code><br>
+    ✓ <code style="font-family:'Fira Code',monospace">This is <u>the thing that</u> I wanted.</code><br>
+    what 自体が「先行詞＋関係代名詞」の働きをするため、先行詞は不要です。
+  </div>
+</section>
+
+<!-- ────────────────────────────────────────────────
+     ② WHEN
+──────────────────────────────────────────────── -->
+<section id="when" class="tab-panel">
+  <div class="sec-head">
+    <div class="sec-icon">W</div>
+    <div>
+      <h2>When — 関係副詞・接続詞</h2>
+      <div class="en">Relative Adverb &amp; Conjunction of Time</div>
+    </div>
+  </div>
+
+  <div class="rule-card">
+    <h3>核心ルール：時を表す先行詞 ＋ when</h3>
+    <p><strong>when</strong> は <em>time, day, year, moment, season, occasion</em> など「時」を表す名詞（先行詞）を修飾する関係副詞です。<br>
+    また先行詞なしで「〜する時に」という <strong>接続詞</strong> としても広く使われます。</p>
+    <div class="formula">先行詞（時） + when + S + V（完全な文）<br>= 先行詞 + at/in/on which + S + V</div>
+  </div>
+
+  <div class="sub-h">① 関係副詞として（先行詞＋when）</div>
+  <ul class="ex-list">
+    <li>
+      <span class="level-badge lv-basic">基礎</span>
+      <div class="en-sent">I remember the day <em>when</em> I first met her.</div>
+      <div class="ja-sent">彼女と初めて会った日のことを覚えている。</div>
+    </li>
+    <li>
+      <span class="level-badge lv-basic">基礎</span>
+      <div class="en-sent">There are times <em>when</em> silence is the best response.</div>
+      <div class="ja-sent">沈黙が最良の返答である時がある。</div>
+    </li>
+    <li>
+      <span class="level-badge lv-mid">中級</span>
+      <div class="en-sent">The year <em>when</em> she was born saw many historical events.</div>
+      <div class="ja-sent">彼女が生まれた年は多くの歴史的事件があった。</div>
+    </li>
+    <li>
+      <span class="level-badge lv-mid">中級</span>
+      <div class="en-sent">Spring is the season <em>when</em> cherry blossoms bloom.</div>
+      <div class="ja-sent">春は桜の花が咲く季節だ。</div>
+    </li>
+  </ul>
+
+  <div class="sub-h">② 前置詞＋which への書き換え</div>
+  <div class="tip-box">
+    <strong>💡 書き換えのポイント</strong><br>
+    <em>when</em> を <em>at/in/on which</em> に書き換えられます。前置詞の選び方は先行詞の種類によります。<br>
+    moment / time → <strong>at which</strong>　　day / year / season → <strong>on / in which</strong>
+  </div>
+  <ul class="ex-list">
+    <li>
+      <span class="level-badge lv-mid">中級</span>
+      <div class="en-sent">The moment <em>when</em> / <em>at which</em> he realized the truth was life-changing.</div>
+      <div class="ja-sent">彼が真実に気づいた瞬間は人生を変えるものだった。</div>
+    </li>
+    <li>
+      <span class="level-badge lv-mid">中級</span>
+      <div class="en-sent">The year <em>when</em> / <em>in which</em> the company was founded was 1995.</div>
+      <div class="ja-sent">その会社が設立された年は1995年だった。</div>
+    </li>
+  </ul>
+
+  <div class="sub-h">③ 接続詞として（先行詞なし）</div>
+  <ul class="ex-list">
+    <li>
+      <span class="level-badge lv-basic">基礎</span>
+      <div class="en-sent">Call me <em>when</em> you arrive.</div>
+      <div class="ja-sent">着いたら電話してください。</div>
+    </li>
+    <li>
+      <span class="level-badge lv-basic">基礎</span>
+      <div class="en-sent">I was reading <em>when</em> the phone rang.</div>
+      <div class="ja-sent">電話が鳴ったとき、私は読書していた。</div>
+    </li>
+    <li>
+      <span class="level-badge lv-mid">中級</span>
+      <div class="en-sent">I remember <em>when</em> this town had only a few houses.</div>
+      <div class="ja-sent">この町に家が数軒しかなかった頃のことを覚えている。（名詞節：remember の目的語）</div>
+    </li>
+    <li>
+      <span class="level-badge lv-mid">中級</span>
+      <div class="en-sent">How can you relax <em>when</em> there is so much work to do?</div>
+      <div class="ja-sent">こんなに仕事があるのにどうしてくつろげるの？</div>
+    </li>
+    <li>
+      <span class="level-badge lv-adv">応用</span>
+      <div class="en-sent"><em>When</em> all is said and done, integrity is what matters.</div>
+      <div class="ja-sent">結局のところ、誠実さが重要なのだ。</div>
+    </li>
+  </ul>
+
+  <div class="sub-h">④ 先行詞の省略（口語表現）</div>
+  <ul class="ex-list">
+    <li>
+      <span class="level-badge lv-mid">中級</span>
+      <div class="en-sent">I remember <u>(the time)</u> <em>when</em> we traveled together.</div>
+      <div class="ja-sent">一緒に旅した（時の）ことを覚えている。（先行詞 the time は省略可）</div>
+    </li>
+  </ul>
+
+  <div class="warn-box">
+    <strong>⚠ when vs. that の使い分け</strong><br>
+    先行詞が時を表す語でも、<em>that</em> や省略が可能な場合があります。<br>
+    ✓ <code style="font-family:'Fira Code',monospace">the day <u>when</u> he left</code><br>
+    ✓ <code style="font-family:'Fira Code',monospace">the day <u>that</u> he left</code><br>
+    ✓ <code style="font-family:'Fira Code',monospace">the day <u>（省略）</u> he left</code>（特に口語）<br>
+    ただし <em>when</em> は副詞的機能が明確なため、書き言葉では推奨されます。
+  </div>
+</section>
+
+<!-- ────────────────────────────────────────────────
+     ③ WHERE
+──────────────────────────────────────────────── -->
+<section id="where" class="tab-panel">
+  <div class="sec-head">
+    <div class="sec-icon">W</div>
+    <div>
+      <h2>Where — 関係副詞・接続詞</h2>
+      <div class="en">Relative Adverb &amp; Conjunction of Place</div>
+    </div>
+  </div>
+
+  <div class="rule-card">
+    <h3>核心ルール：場所を表す先行詞 ＋ where</h3>
+    <p><strong>where</strong> は <em>place, city, country, room, position, situation</em> など「場所・状況」を表す名詞を修飾する関係副詞です。<br>
+    接続詞・名詞節としても使われ、「〜するところ（に）」という意味を作ります。</p>
+    <div class="formula">先行詞（場所） + where + S + V（完全な文）<br>= 先行詞 + in/at/on which + S + V</div>
+  </div>
+
+  <div class="sub-h">① 関係副詞として（先行詞＋where）</div>
+  <ul class="ex-list">
+    <li>
+      <span class="level-badge lv-basic">基礎</span>
+      <div class="en-sent">This is the city <em>where</em> I was born.</div>
+      <div class="ja-sent">ここが私が生まれた街だ。</div>
+    </li>
+    <li>
+      <span class="level-badge lv-basic">基礎</span>
+      <div class="en-sent">Show me the place <em>where</em> it happened.</div>
+      <div class="ja-sent">それが起きた場所を教えてください。</div>
+    </li>
+    <li>
+      <span class="level-badge lv-mid">中級</span>
+      <div class="en-sent">The country <em>where</em> she grew up has changed dramatically.</div>
+      <div class="ja-sent">彼女が育った国は劇的に変化した。</div>
+    </li>
+    <li>
+      <span class="level-badge lv-mid">中級</span>
+      <div class="en-sent">We stayed at a hotel <em>where</em> the service was exceptional.</div>
+      <div class="ja-sent">私たちはサービスが素晴らしいホテルに泊まった。</div>
+    </li>
+  </ul>
+
+  <div class="sub-h">② 前置詞＋which への書き換え</div>
+  <div class="tip-box">
+    <strong>💡 書き換えのポイント</strong><br>
+    <em>where</em> は <em>in which / at which / on which</em> に書き換えられます。<br>
+    建物・部屋 → <strong>in which</strong>　　特定の点・位置 → <strong>at which</strong>
+  </div>
+  <ul class="ex-list">
+    <li>
+      <span class="level-badge lv-mid">中級</span>
+      <div class="en-sent">The office <em>where</em> / <em>in which</em> she works is downtown.</div>
+      <div class="ja-sent">彼女が働くオフィスはダウンタウンにある。</div>
+    </li>
+    <li>
+      <span class="level-badge lv-adv">応用</span>
+      <div class="en-sent">The point <em>where</em> / <em>at which</em> we disagree is the budget.</div>
+      <div class="ja-sent">私たちが意見の合わない点は予算だ。（抽象的な「場所」）</div>
+    </li>
+  </ul>
+
+  <div class="sub-h">③ "This is where…" 構文（接続詞的用法）</div>
+  <ul class="ex-list">
+    <li>
+      <span class="level-badge lv-basic">基礎</span>
+      <div class="en-sent">This is <em>where</em> I grew up.</div>
+      <div class="ja-sent">ここが私が育ったところだ。（先行詞なし・補語として）</div>
+    </li>
+    <li>
+      <span class="level-badge lv-mid">中級</span>
+      <div class="en-sent">That is <em>where</em> you are wrong.</div>
+      <div class="ja-sent">そこがあなたの間違っているところだ。（抽象的な意味）</div>
+    </li>
+    <li>
+      <span class="level-badge lv-mid">中級</span>
+      <div class="en-sent">I don't know <em>where</em> she went.</div>
+      <div class="ja-sent">彼女がどこへ行ったか分からない。（間接疑問文・名詞節）</div>
+    </li>
+    <li>
+      <span class="level-badge lv-adv">応用</span>
+      <div class="en-sent">Go <em>where</em> your heart leads you.</div>
+      <div class="ja-sent">心の向く場所へ行きなさい。（副詞節）</div>
+    </li>
+    <li>
+      <span class="level-badge lv-adv">応用</span>
+      <div class="en-sent">Problems arise <em>where</em> communication breaks down.</div>
+      <div class="ja-sent">コミュニケーションが崩れるところに問題が生じる。</div>
+    </li>
+  </ul>
+
+  <div class="sub-h">④ 抽象的な「場所」への応用</div>
+  <ul class="ex-list">
+    <li>
+      <span class="level-badge lv-adv">応用</span>
+      <div class="en-sent">We are at a stage <em>where</em> every decision counts.</div>
+      <div class="ja-sent">私たちは一つひとつの決断が重要な段階にいる。（stage＝抽象的場所）</div>
+    </li>
+    <li>
+      <span class="level-badge lv-adv">応用</span>
+      <div class="en-sent">This is a situation <em>where</em> flexibility is key.</div>
+      <div class="ja-sent">これは柔軟性が鍵となる状況だ。</div>
+    </li>
+  </ul>
+
+  <div class="warn-box">
+    <strong>⚠ where vs. which の混同</strong><br>
+    ✗ <code style="font-family:'Fira Code',monospace">the city <u>which</u> I was born in</code>（誤りではないが…）<br>
+    ✓ <code style="font-family:'Fira Code',monospace">the city <u>where</u> I was born</code>（よりスマート）<br>
+    ✓ <code style="font-family:'Fira Code',monospace">the city <u>in which</u> I was born</code>（フォーマル）<br><br>
+    <em>where</em> を使うと前置詞を書く必要がなく、すっきりとした文になります。
+  </div>
+</section>
+
+<!-- ────────────────────────────────────────────────
+     ④ WHICH
+──────────────────────────────────────────────── -->
+<section id="which" class="tab-panel">
+  <div class="sec-head">
+    <div class="sec-icon">W</div>
+    <div>
+      <h2>Which — 関係代名詞・間接疑問文</h2>
+      <div class="en">Relative Pronoun &amp; Indirect Question</div>
+    </div>
+  </div>
+
+  <div class="rule-card">
+    <h3>核心ルール：制限用法 vs. 非制限用法</h3>
+    <p><strong>which</strong> は「もの・事柄」を先行詞にとる関係代名詞です。<br>
+    <em>カンマなし（制限用法）</em>は先行詞を特定し、<em>カンマあり（非制限用法）</em>は先行詞に補足情報を加えます。<br>
+    また間接疑問文で「どちら・どれ」の意味にもなります。</p>
+    <div class="formula">【制限】先行詞 + which + S + V / V + 先行詞<br>【非制限】先行詞 , which + S + V / V + 先行詞</div>
+  </div>
+
+  <div class="sub-h">① 制限用法（カンマなし）— 先行詞を特定する</div>
+  <ul class="ex-list">
+    <li>
+      <span class="level-badge lv-basic">基礎</span>
+      <div class="en-sent">The book <em>which</em> I recommended is out of stock.</div>
+      <div class="ja-sent">私が勧めた（その）本は売り切れだ。（特定の一冊）</div>
+    </li>
+    <li>
+      <span class="level-badge lv-basic">基礎</span>
+      <div class="en-sent">I want a car <em>which</em> uses less fuel.</div>
+      <div class="ja-sent">燃料消費が少ない車が欲しい。</div>
+    </li>
+    <li>
+      <span class="level-badge lv-mid">中級</span>
+      <div class="en-sent">The project <em>which</em> she led won a national award.</div>
+      <div class="ja-sent">彼女が率いたプロジェクトは全国賞を受賞した。</div>
+    </li>
+  </ul>
+
+  <div class="sub-h">② 非制限用法（カンマあり）— 補足情報を加える</div>
+  <div class="tip-box">
+    <strong>💡 非制限用法の重要ポイント</strong><br>
+    カンマ＋which は <strong>that に置き換えられません</strong>（非制限用法に that は使えない）。<br>
+    また、前の <em>文全体</em> を先行詞にとることもできます。
+  </div>
+  <ul class="ex-list">
+    <li>
+      <span class="level-badge lv-mid">中級</span>
+      <div class="en-sent">He passed the exam, <em>which</em> surprised everyone.</div>
+      <div class="ja-sent">彼は試験に合格した。そのことは全員を驚かせた。（文全体が先行詞）</div>
+    </li>
+    <li>
+      <span class="level-badge lv-mid">中級</span>
+      <div class="en-sent">My laptop, <em>which</em> I bought last year, has already broken.</div>
+      <div class="ja-sent">去年買った私のノートパソコンは、もう壊れてしまった。</div>
+    </li>
+    <li>
+      <span class="level-badge lv-adv">応用</span>
+      <div class="en-sent">She declined the offer, <em>which</em> was a wise decision.</div>
+      <div class="ja-sent">彼女はオファーを断った。それは賢明な決断だった。</div>
+    </li>
+  </ul>
+
+  <div class="sub-h">③ that との使い分け</div>
+  <div class="warn-box">
+    <strong>⚠ that が必須 / 不可の場面</strong><br>
+    <table style="font-size:13px; width:100%; border-collapse:collapse; margin-top:8px;">
+      <tr style="background:#f8f8f8"><th style="padding:6px 10px; text-align:left">場面</th><th>which</th><th>that</th></tr>
+      <tr><td style="padding:6px 10px">先行詞が「人」</td><td>△（もの扱い）</td><td>○（who も可）</td></tr>
+      <tr style="background:#f8f8f8"><td style="padding:6px 10px">非制限用法（カンマあり）</td><td>○</td><td>✗</td></tr>
+      <tr><td style="padding:6px 10px">先行詞に序数・最上級</td><td>△</td><td>○ 推奨</td></tr>
+      <tr style="background:#f8f8f8"><td style="padding:6px 10px">先行詞が all / the only / nothing</td><td>△</td><td>○ 推奨</td></tr>
+      <tr><td style="padding:6px 10px">前置詞＋（直後）</td><td>○（in which など）</td><td>✗</td></tr>
+    </table>
+  </div>
+  <ul class="ex-list">
+    <li>
+      <span class="level-badge lv-adv">応用</span>
+      <div class="en-sent">This is the best movie <em>that</em> I've ever seen.</div>
+      <div class="ja-sent">これは私が今まで見た中で最高の映画だ。（最上級 → that 推奨）</div>
+    </li>
+    <li>
+      <span class="level-badge lv-adv">応用</span>
+      <div class="en-sent">Everything <em>that</em> glitters is not gold.</div>
+      <div class="ja-sent">光るものすべてが金ではない。（everything → that）</div>
+    </li>
+  </ul>
+
+  <div class="sub-h">④ 前置詞＋which（フォーマル表現）</div>
+  <ul class="ex-list">
+    <li>
+      <span class="level-badge lv-mid">中級</span>
+      <div class="en-sent">The conference <em>at which</em> he spoke was well attended.</div>
+      <div class="ja-sent">彼が講演した会議には多くの人が参加した。</div>
+    </li>
+    <li>
+      <span class="level-badge lv-adv">応用</span>
+      <div class="en-sent">The method <em>by which</em> they solved the problem was innovative.</div>
+      <div class="ja-sent">彼らが問題を解いた方法は革新的だった。</div>
+    </li>
+    <li>
+      <span class="level-badge lv-adv">応用</span>
+      <div class="en-sent">The reason <em>for which</em> she resigned is unknown.</div>
+      <div class="ja-sent">彼女が辞任した理由は不明だ。（= the reason why she resigned）</div>
+    </li>
+  </ul>
+
+  <div class="sub-h">⑤ 間接疑問文での which（どちら・どれ）</div>
+  <ul class="ex-list">
+    <li>
+      <span class="level-badge lv-basic">基礎</span>
+      <div class="en-sent">I don't know <em>which</em> one is correct.</div>
+      <div class="ja-sent">どちらが正しいか分からない。</div>
+    </li>
+    <li>
+      <span class="level-badge lv-mid">中級</span>
+      <div class="en-sent">Please tell me <em>which</em> route you prefer.</div>
+      <div class="ja-sent">どのルートがお好みか教えてください。</div>
+    </li>
+    <li>
+      <span class="level-badge lv-mid">中級</span>
+      <div class="en-sent">I can't decide <em>which</em> job offer to accept.</div>
+      <div class="ja-sent">どちらの求人を受けるか決められない。（which + 名詞 + to 不定詞）</div>
+    </li>
+  </ul>
+</section>
+
+<!-- ────────────────────────────────────────────────
+     ⑤ HOW
+──────────────────────────────────────────────── -->
+<section id="how" class="tab-panel">
+  <div class="sec-head">
+    <div class="sec-icon">H</div>
+    <div>
+      <h2>How — 接続詞・間接疑問文</h2>
+      <div class="en">Conjunction &amp; Indirect Question</div>
+    </div>
+  </div>
+
+  <div class="rule-card">
+    <h3>核心ルール："the way how" は使えない</h3>
+    <p><strong>how</strong> は「どのように・〜な方法」を表す接続詞・疑問詞です。<br>
+    関係副詞 how の先行詞は <em>the way</em> ですが、<em>the way how</em> は <strong>不可</strong>。<br>
+    → <em>"the way"</em> か <em>"how"</em> のどちらか一方だけを使います。</p>
+    <div class="formula">✓  the way (that/in which) S + V<br>✓  how S + V<br>✗  the way how S + V</div>
+  </div>
+
+  <div class="sub-h">① the way / how — 方法を表す</div>
+  <ul class="ex-list">
+    <li>
+      <span class="level-badge lv-basic">基礎</span>
+      <div class="en-sent">I like <em>the way</em> she smiles.  /  I like <em>how</em> she smiles.</div>
+      <div class="ja-sent">彼女の笑い方が好きだ。（the way / how どちらも可。the way how は ×）</div>
+    </li>
+    <li>
+      <span class="level-badge lv-mid">中級</span>
+      <div class="en-sent">Tell me <em>the way (in which)</em> you solved it.  /  Tell me <em>how</em> you solved it.</div>
+      <div class="ja-sent">どうやってそれを解いたか教えて。</div>
+    </li>
+    <li>
+      <span class="level-badge lv-adv">応用</span>
+      <div class="en-sent"><em>The way</em> a company treats its employees reflects its culture.</div>
+      <div class="ja-sent">会社が従業員を扱う方法はその企業文化を反映している。</div>
+    </li>
+  </ul>
+
+  <div class="sub-h">② 間接疑問文としての how</div>
+  <div class="tip-box">
+    <strong>💡 語順に注意！</strong><br>
+    直接疑問文：<code style="font-family:'Fira Code',monospace">How does he do it?</code><br>
+    間接疑問文：<code style="font-family:'Fira Code',monospace">I know <em>how he does it</em>.</code>（疑問文の語順 → 平叙文の語順 S + V）
+  </div>
+  <ul class="ex-list">
+    <li>
+      <span class="level-badge lv-basic">基礎</span>
+      <div class="en-sent">Do you know <em>how</em> this machine works?</div>
+      <div class="ja-sent">この機械がどう動くか知っていますか？</div>
+    </li>
+    <li>
+      <span class="level-badge lv-basic">基礎</span>
+      <div class="en-sent">I'm not sure <em>how</em> to get there.</div>
+      <div class="ja-sent">そこへの行き方がわかりません。（how + to 不定詞）</div>
+    </li>
+    <li>
+      <span class="level-badge lv-mid">中級</span>
+      <div class="en-sent">Please explain <em>how</em> you came to that conclusion.</div>
+      <div class="ja-sent">どうしてその結論に至ったか説明してください。</div>
+    </li>
+    <li>
+      <span class="level-badge lv-mid">中級</span>
+      <div class="en-sent">She taught me <em>how</em> to manage stress effectively.</div>
+      <div class="ja-sent">彼女はストレスをうまく管理する方法を教えてくれた。</div>
+    </li>
+    <li>
+      <span class="level-badge lv-adv">応用</span>
+      <div class="en-sent">What matters is not <em>how</em> fast you work but <em>how</em> well.</div>
+      <div class="ja-sent">重要なのは速さではなく、いかによくできるかだ。</div>
+    </li>
+  </ul>
+
+  <div class="sub-h">③ how + 形容詞・副詞（間接疑問文）</div>
+  <ul class="ex-list">
+    <li>
+      <span class="level-badge lv-mid">中級</span>
+      <div class="en-sent">I was amazed at <em>how quickly</em> she learned Japanese.</div>
+      <div class="ja-sent">彼女がどれほど素早く日本語を習得したかに驚いた。</div>
+    </li>
+    <li>
+      <span class="level-badge lv-mid">中級</span>
+      <div class="en-sent">You won't believe <em>how long</em> I waited.</div>
+      <div class="ja-sent">どれだけ待ったかは信じられないでしょう。</div>
+    </li>
+    <li>
+      <span class="level-badge lv-adv">応用</span>
+      <div class="en-sent">It depends on <em>how serious</em> the problem is.</div>
+      <div class="ja-sent">問題がどれほど深刻かによる。</div>
+    </li>
+  </ul>
+
+  <div class="sub-h">④ 感嘆文との違い（How + 形容詞）</div>
+  <div class="warn-box">
+    <strong>⚠ 間接疑問文 vs. 感嘆文</strong><br>
+    感嘆文：<code style="font-family:'Fira Code',monospace"><em>How</em> beautiful she is!</code>（語順：How + 形容詞 + S + V）<br>
+    間接疑問文：<code style="font-family:'Fira Code',monospace">I know <em>how</em> beautiful she is.</code>（平叙文の語順で埋め込まれる）<br>
+    感嘆文は文として独立し、間接疑問文は文の一部（名詞節）になります。
+  </div>
+  <ul class="ex-list">
+    <li>
+      <span class="level-badge lv-mid">中級</span>
+      <div class="en-sent"><em>How</em> time flies! / I can't believe <em>how</em> fast time flies.</div>
+      <div class="ja-sent">時間の経つのは早い！ / 時間が経つのがこんなに早いとは信じられない。</div>
+    </li>
+    <li>
+      <span class="level-badge lv-adv">応用</span>
+      <div class="en-sent">He showed me <em>how</em> important teamwork is.</div>
+      <div class="ja-sent">彼はチームワークがどれほど重要かを私に示してくれた。</div>
+    </li>
+  </ul>
+</section>
+
+<!-- ────────────────────────────────────────────────
+     ⑥ COMPARISON TABLE
+──────────────────────────────────────────────── -->
+<section id="table" class="tab-panel">
+  <div class="sec-head" style="border-color: var(--gold);">
+    <div class="sec-icon" style="background: var(--navy); border: 2px solid var(--gold);">≡</div>
+    <div>
+      <h2>5語 比較対照表</h2>
+      <div class="en">Quick Reference Chart</div>
+    </div>
+  </div>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>語</th>
+          <th>品詞・用法</th>
+          <th>先行詞・意味</th>
+          <th>後ろの構造</th>
+          <th>言い換え表現</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="color:var(--accent1)">what</td>
+          <td>
+            <span class="chip" style="background:#dbeafe;color:#1e40af">関係代名詞</span>
+            <span class="chip" style="background:#dbeafe;color:#1e40af">名詞節</span>
+          </td>
+          <td>先行詞を含む<br>（"thing" 内包）</td>
+          <td>不完全な文<br>（S or O 欠如）</td>
+          <td>the thing(s) which<br>the thing(s) that</td>
+        </tr>
+        <tr>
+          <td style="color:var(--accent2)">when</td>
+          <td>
+            <span class="chip" style="background:#dcfce7;color:#166534">関係副詞</span>
+            <span class="chip" style="background:#dcfce7;color:#166534">接続詞</span>
+          </td>
+          <td>時を表す名詞<br>time / day / year…</td>
+          <td>完全な文</td>
+          <td>at/in/on which<br>that（省略可）</td>
+        </tr>
+        <tr>
+          <td style="color:var(--accent3)">where</td>
+          <td>
+            <span class="chip" style="background:#ffedd5;color:#9a3412">関係副詞</span>
+            <span class="chip" style="background:#ffedd5;color:#9a3412">接続詞</span>
+          </td>
+          <td>場所・状況を表す名詞<br>place / city / situation…</td>
+          <td>完全な文</td>
+          <td>in/at which<br>that（省略可）</td>
+        </tr>
+        <tr>
+          <td style="color:var(--accent4)">which</td>
+          <td>
+            <span class="chip" style="background:#ede9fe;color:#5b21b6">関係代名詞</span>
+            <span class="chip" style="background:#ede9fe;color:#5b21b6">間接疑問詞</span>
+          </td>
+          <td>もの・事柄<br>（人以外が基本）</td>
+          <td>不完全な文<br>（O 欠如など）</td>
+          <td>that（制限用法）<br>※非制限はthat不可</td>
+        </tr>
+        <tr>
+          <td style="color:var(--accent5)">how</td>
+          <td>
+            <span class="chip" style="background:#fef9c3;color:#854d0e">接続詞</span>
+            <span class="chip" style="background:#fef9c3;color:#854d0e">間接疑問詞</span>
+          </td>
+          <td>方法・程度<br>（the way が先行詞）</td>
+          <td>完全な文<br>(平叙文語順)</td>
+          <td>the way (in which)<br>※the way how は✗</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="sub-h">後ろに来る「文の完全性」チェックシート</div>
+  <div class="rule-card" style="border-left-color: var(--accent1);">
+    <h3>不完全な文が来る（= 関係代名詞）</h3>
+    <p>
+      <strong style="color:var(--gold2)">what / which</strong> の後ろは、主語または目的語が欠けた不完全な文が来ます。<br>
+      例：<code style="font-family:'Fira Code',monospace">I know <u>what</u> she wants. ← wants の目的語が欠けている</code><br>
+      例：<code style="font-family:'Fira Code',monospace">the book <u>which</u> I read ← read の目的語が欠けている</code>
+    </p>
+  </div>
+  <div class="rule-card" style="border-left-color: var(--accent2); margin-top: 0;">
+    <h3>完全な文が来る（= 関係副詞・接続詞）</h3>
+    <p>
+      <strong style="color:var(--gold2)">when / where / how</strong> の後ろは、主語も目的語も揃った完全な文が来ます。<br>
+      例：<code style="font-family:'Fira Code',monospace">the city <u>where</u> she lives ← she lives は完全な文</code><br>
+      例：<code style="font-family:'Fira Code',monospace">I know <u>how</u> he did it ← he did it は完全な文</code>
+    </p>
+  </div>
+
+  <div class="sub-h">間接疑問文における語順まとめ</div>
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>直接疑問文</th>
+          <th>→</th>
+          <th>間接疑問文（節）</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><code style="font-family:'Fira Code',monospace">What does he want?</code></td><td>→</td><td><code style="font-family:'Fira Code',monospace">I know what he wants.</code></td></tr>
+        <tr><td><code style="font-family:'Fira Code',monospace">When did she leave?</code></td><td>→</td><td><code style="font-family:'Fira Code',monospace">I know when she left.</code></td></tr>
+        <tr><td><code style="font-family:'Fira Code',monospace">Where is the office?</code></td><td>→</td><td><code style="font-family:'Fira Code',monospace">I know where the office is.</code></td></tr>
+        <tr><td><code style="font-family:'Fira Code',monospace">Which one is better?</code></td><td>→</td><td><code style="font-family:'Fira Code',monospace">I know which one is better.</code></td></tr>
+        <tr><td><code style="font-family:'Fira Code',monospace">How did they do it?</code></td><td>→</td><td><code style="font-family:'Fira Code',monospace">I know how they did it.</code></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="tip-box">
+    <strong>💡 ポイント</strong>：間接疑問文に組み込まれると、<strong>疑問文の語順（助動詞 + S）が平叙文の語順（S + V）に戻ります。</strong><br>
+    Does he → he does / Did she → she did / Is it → it is
+  </div>
+</section>
+
+<!-- ────────────────────────────────────────────────
+     ⑦ QUIZ
+──────────────────────────────────────────────── -->
+<section id="quiz" class="tab-panel">
+  <div class="sec-head" style="border-color: #e07070;">
+    <div class="sec-icon" style="background:#c0392b;">✏</div>
+    <div>
+      <h2>練習問題</h2>
+      <div class="en">Exercises — Fill in the Blanks &amp; Rewriting</div>
+    </div>
+  </div>
+
+  <!-- PART 1: Fill in the Blanks -->
+  <div class="quiz-section">
+    <h3>Part 1 — 穴埋め問題（全15問）</h3>
+    <p style="font-size:13px; color:#666; margin-bottom:20px;">空所に適切な語（what / when / where / which / how）を入れてください。▼ 答えを見る をクリックすると解答と解説が表示されます。</p>
+
+    <!-- Q1 -->
+    <div class="q-card basic">
+      <div class="q-num">Q1 · 基礎</div>
+      <div class="q-text">I don't know <span class="blank">　　　</span> she said.</div>
+      <div class="q-ja">彼女が何を言ったか分からない。</div>
+      <details><summary>▼ 答えを見る</summary>
+        <div class="answer-box">答え：<em>what</em><br><span class="exp">「彼女が言ったこと」= what she said。said の目的語が欠けているので関係代名詞 what。</span></div>
+      </details>
+    </div>
+
+    <!-- Q2 -->
+    <div class="q-card basic">
+      <div class="q-num">Q2 · 基礎</div>
+      <div class="q-text">This is the place <span class="blank">　　　</span> we first met.</div>
+      <div class="q-ja">ここが私たちが初めて会った場所です。</div>
+      <details><summary>▼ 答えを見る</summary>
+        <div class="answer-box">答え：<em>where</em><br><span class="exp">先行詞 place（場所）＋関係副詞 where。後ろは完全な文 we first met。</span></div>
+      </details>
+    </div>
+
+    <!-- Q3 -->
+    <div class="q-card basic">
+      <div class="q-num">Q3 · 基礎</div>
+      <div class="q-text">Do you remember the year <span class="blank">　　　</span> you started this job?</div>
+      <div class="q-ja">この仕事を始めた年を覚えていますか？</div>
+      <details><summary>▼ 答えを見る</summary>
+        <div class="answer-box">答え：<em>when</em><br><span class="exp">先行詞 year（時）＋関係副詞 when。= the year in which you started this job。</span></div>
+      </details>
+    </div>
+
+    <!-- Q4 -->
+    <div class="q-card basic">
+      <div class="q-num">Q4 · 基礎</div>
+      <div class="q-text">Tell me <span class="blank">　　　</span> to use this software.</div>
+      <div class="q-ja">このソフトウェアの使い方を教えてください。</div>
+      <details><summary>▼ 答えを見る</summary>
+        <div class="answer-box">答え：<em>how</em><br><span class="exp">「〜の仕方」= how to + 動詞。the way to でも可。</span></div>
+      </details>
+    </div>
+
+    <!-- Q5 -->
+    <div class="q-card basic">
+      <div class="q-num">Q5 · 基礎</div>
+      <div class="q-text">The report, <span class="blank">　　　</span> was submitted yesterday, has errors.</div>
+      <div class="q-ja">昨日提出されたレポートには誤りがある。</div>
+      <details><summary>▼ 答えを見る</summary>
+        <div class="answer-box">答え：<em>which</em><br><span class="exp">カンマあり（非制限用法）なので that は使えず which。先行詞は report（もの）。</span></div>
+      </details>
+    </div>
+
+    <!-- Q6 -->
+    <div class="q-card mid">
+      <div class="q-num">Q6 · 中級</div>
+      <div class="q-text"><span class="blank">　　　</span> surprised me was his honesty.</div>
+      <div class="q-ja">私を驚かせたのは彼の誠実さだった。</div>
+      <details><summary>▼ 答えを見る</summary>
+        <div class="answer-box">答え：<em>What</em><br><span class="exp">文の主語として機能する名詞節。What surprised me = The thing that surprised me。</span></div>
+      </details>
+    </div>
+
+    <!-- Q7 -->
+    <div class="q-card mid">
+      <div class="q-num">Q7 · 中級</div>
+      <div class="q-text">I can't decide <span class="blank">　　　</span> option is better.</div>
+      <div class="q-ja">どちらの選択肢が良いか決められない。</div>
+      <details><summary>▼ 答えを見る</summary>
+        <div class="answer-box">答え：<em>which</em><br><span class="exp">「どちら・どれ」を問う間接疑問文。限られた選択肢の中から選ぶ場合は which（what は「何」で選択肢が不特定）。</span></div>
+      </details>
+    </div>
+
+    <!-- Q8 -->
+    <div class="q-card mid">
+      <div class="q-num">Q8 · 中級</div>
+      <div class="q-text">The town <span class="blank">　　　</span> she grew up no longer exists.</div>
+      <div class="q-ja">彼女が育った町はもう存在しない。</div>
+      <details><summary>▼ 答えを見る</summary>
+        <div class="answer-box">答え：<em>where</em><br><span class="exp">先行詞 town（場所）＋関係副詞 where。= the town in which she grew up。</span></div>
+      </details>
+    </div>
+
+    <!-- Q9 -->
+    <div class="q-card mid">
+      <div class="q-num">Q9 · 中級</div>
+      <div class="q-text">I'll never forget the moment <span class="blank">　　　</span> I heard the news.</div>
+      <div class="q-ja">そのニュースを聞いた瞬間を決して忘れない。</div>
+      <details><summary>▼ 答えを見る</summary>
+        <div class="answer-box">答え：<em>when</em><br><span class="exp">先行詞 moment（時）＋関係副詞 when。= at which I heard the news。</span></div>
+      </details>
+    </div>
+
+    <!-- Q10 -->
+    <div class="q-card mid">
+      <div class="q-num">Q10 · 中級</div>
+      <div class="q-text">She was amazed at <span class="blank">　　　</span> well he performed.</div>
+      <div class="q-ja">彼女は彼がどれほど上手く演じたかに驚いた。</div>
+      <details><summary>▼ 答えを見る</summary>
+        <div class="answer-box">答え：<em>how</em><br><span class="exp">how + 副詞（well）で「どれほど〜か」。前置詞 at の目的語となる名詞節。</span></div>
+      </details>
+    </div>
+
+    <!-- Q11 -->
+    <div class="q-card mid">
+      <div class="q-num">Q11 · 中級</div>
+      <div class="q-text">Give me <span class="blank">　　　</span> information you have.</div>
+      <div class="q-ja">持っているあらゆる情報をください。（= all the information）</div>
+      <details><summary>▼ 答えを見る</summary>
+        <div class="answer-box">答え：<em>what(ever) / what</em><br><span class="exp">what + 名詞 = all the … that の意味。「what + 形容詞 + 名詞」構文。whatever でも可。</span></div>
+      </details>
+    </div>
+
+    <!-- Q12 -->
+    <div class="q-card adv">
+      <div class="q-num">Q12 · 応用</div>
+      <div class="q-text">The method <span class="blank">　　　</span> he solved the equation was brilliant.</div>
+      <div class="q-ja">彼がその方程式を解いた方法は見事だった。</div>
+      <details><summary>▼ 答えを見る</summary>
+        <div class="answer-box">答え：<em>by which / how</em>（どちらも正解）<br><span class="exp">先行詞 method + by which（前置詞＋which）。または method を省いて how。the method how は×。</span></div>
+      </details>
+    </div>
+
+    <!-- Q13 -->
+    <div class="q-card adv">
+      <div class="q-num">Q13 · 応用</div>
+      <div class="q-text">He passed the exam, <span class="blank">　　　</span> shocked his parents.</div>
+      <div class="q-ja">彼は試験に合格した。そのことが両親を驚かせた。</div>
+      <details><summary>▼ 答えを見る</summary>
+        <div class="answer-box">答え：<em>which</em><br><span class="exp">カンマ＋which で前の文全体を先行詞にとる非制限用法。that は使えない。</span></div>
+      </details>
+    </div>
+
+    <!-- Q14 -->
+    <div class="q-card adv">
+      <div class="q-num">Q14 · 応用</div>
+      <div class="q-text">This is not <span class="blank">　　　</span> I expected.</div>
+      <div class="ja-sent" style="font-size:13px;color:#666;margin-bottom:10px;">これは私が予期していたものではない。</div>
+      <details><summary>▼ 答えを見る</summary>
+        <div class="answer-box">答え：<em>what</em><br><span class="exp">補語の位置にある名詞節。what I expected = the thing that I expected（expected の目的語欠如）。</span></div>
+      </details>
+    </div>
+
+    <!-- Q15 -->
+    <div class="q-card adv">
+      <div class="q-num">Q15 · 応用</div>
+      <div class="q-text">We reached a point <span class="blank">　　　</span> further negotiation was impossible.</div>
+      <div class="ja-sent" style="font-size:13px;color:#666;margin-bottom:10px;">これ以上の交渉が不可能な段階に達した。</div>
+      <details><summary>▼ 答えを見る</summary>
+        <div class="answer-box">答え：<em>where</em><br><span class="exp">先行詞 point（抽象的な「地点・段階」）＋関係副詞 where。at which も可。</span></div>
+      </details>
+    </div>
+  </div>
+
+  <!-- PART 2: Rewriting -->
+  <div class="quiz-section">
+    <h3>Part 2 — 書き換え問題（全10問）</h3>
+    <p style="font-size:13px; color:#666; margin-bottom:20px;">指示に従って文を書き換えてください。</p>
+
+    <!-- RQ1 -->
+    <div class="q-card basic">
+      <div class="q-num">RQ1 · 基礎 ｜ 関係副詞 → 前置詞＋which</div>
+      <div class="q-text">The city <em>where</em> she was born is famous for its food.</div>
+      <div class="q-ja">in which を使って書き換えなさい。</div>
+      <details><summary>▼ 答えを見る</summary>
+        <div class="answer-box">The city <em>in which</em> she was born is famous for its food.<br><span class="exp">where = in which（場所の関係副詞の書き換え）</span></div>
+      </details>
+    </div>
+
+    <!-- RQ2 -->
+    <div class="q-card basic">
+      <div class="q-num">RQ2 · 基礎 ｜ the thing that → what</div>
+      <div class="q-text">The thing that he told me was surprising.</div>
+      <div class="q-ja">what を使って1語で書き換えなさい。</div>
+      <details><summary>▼ 答えを見る</summary>
+        <div class="answer-box"><em>What</em> he told me was surprising.<br><span class="exp">The thing that = what（先行詞を含んだ関係代名詞）</span></div>
+      </details>
+    </div>
+
+    <!-- RQ3 -->
+    <div class="q-card basic">
+      <div class="q-num">RQ3 · 基礎 ｜ 直接疑問 → 間接疑問</div>
+      <div class="q-text">How does this app work?</div>
+      <div class="q-ja">I want to know ... の形に書き換えなさい。</div>
+      <details><summary>▼ 答えを見る</summary>
+        <div class="answer-box">I want to know <em>how this app works</em>.<br><span class="exp">間接疑問文では語順を平叙文に戻す。does は不要になり works に。</span></div>
+      </details>
+    </div>
+
+    <!-- RQ4 -->
+    <div class="q-card mid">
+      <div class="q-num">RQ4 · 中級 ｜ 関係副詞 → 前置詞＋which</div>
+      <div class="q-text">I remember the year <em>when</em> I graduated.</div>
+      <div class="q-ja">in which を使って書き換えなさい。</div>
+      <details><summary>▼ 答えを見る</summary>
+        <div class="answer-box">I remember the year <em>in which</em> I graduated.<br><span class="exp">年 = in which（「〜年に」の前置詞は in）</span></div>
+      </details>
+    </div>
+
+    <!-- RQ5 -->
+    <div class="q-card mid">
+      <div class="q-num">RQ5 · 中級 ｜ the way how → the way / how</div>
+      <div class="q-text">I like the way how she explains things.  ← 誤文</div>
+      <div class="q-ja">正しい2種類の書き換えをしなさい。</div>
+      <details><summary>▼ 答えを見る</summary>
+        <div class="answer-box">
+          ① I like <em>the way</em> she explains things.<br>
+          ② I like <em>how</em> she explains things.<br>
+          <span class="exp">the way how は不可。the way または how のどちらか一方。</span>
+        </div>
+      </details>
+    </div>
+
+    <!-- RQ6 -->
+    <div class="q-card mid">
+      <div class="q-num">RQ6 · 中級 ｜ 制限 → 非制限</div>
+      <div class="q-text">His answer which was wrong confused everyone.</div>
+      <div class="q-ja">「彼の答えは間違っていた（それは全員を混乱させた）」という意味になるようカンマを使って書き換えなさい。</div>
+      <details><summary>▼ 答えを見る</summary>
+        <div class="answer-box">His answer<em>, which was wrong,</em> confused everyone.<br><span class="exp">非制限用法：カンマで挟んで補足情報に。意味が「間違っていたもの」→「（その答えは）間違っていた」に変わる。</span></div>
+      </details>
+    </div>
+
+    <!-- RQ7 -->
+    <div class="q-card mid">
+      <div class="q-num">RQ7 · 中級 ｜ 直接疑問 → 間接疑問</div>
+      <div class="q-text">Which train should I take?</div>
+      <div class="q-ja">Could you tell me ... の形に書き換えなさい。</div>
+      <details><summary>▼ 答えを見る</summary>
+        <div class="answer-box">Could you tell me <em>which train I should take</em>?<br><span class="exp">間接疑問：語順を S + should take に。should は残す（助動詞）。</span></div>
+      </details>
+    </div>
+
+    <!-- RQ8 -->
+    <div class="q-card adv">
+      <div class="q-num">RQ8 · 応用 ｜ 前置詞＋which → 関係副詞</div>
+      <div class="q-text">The conference at which she spoke was held in Tokyo.</div>
+      <div class="q-ja">where を使って書き換えなさい。</div>
+      <details><summary>▼ 答えを見る</summary>
+        <div class="answer-box">The conference <em>where</em> she spoke was held in Tokyo.<br><span class="exp">at which → where（場所として捉えた書き換え）</span></div>
+      </details>
+    </div>
+
+    <!-- RQ9 -->
+    <div class="q-card adv">
+      <div class="q-num">RQ9 · 応用 ｜ what 構文の変換</div>
+      <div class="q-text">She is not the person that she used to be.</div>
+      <div class="q-ja">what を使って書き換えなさい。</div>
+      <details><summary>▼ 答えを見る</summary>
+        <div class="answer-box">She is not <em>what</em> she used to be.<br><span class="exp">the person that → what（先行詞を含んだ what に置き換え）</span></div>
+      </details>
+    </div>
+
+    <!-- RQ10 -->
+    <div class="q-card adv">
+      <div class="q-num">RQ10 · 応用 ｜ 複合書き換え</div>
+      <div class="q-text">He explained the reason. He resigned for the reason.</div>
+      <div class="q-ja">2文を1文にまとめなさい（why または for which を使う）。</div>
+      <details><summary>▼ 答えを見る</summary>
+        <div class="answer-box">
+          ① He explained the reason <em>why</em> he resigned.<br>
+          ② He explained the reason <em>for which</em> he resigned.<br>
+          <span class="exp">先行詞 reason + 関係副詞 why、または前置詞 for + which。</span>
+        </div>
+      </details>
+    </div>
+  </div>
+
+  <!-- Summary -->
+  <div class="rule-card" style="border-left-color: var(--gold2); margin-top: 20px;">
+    <h3>得点の目安</h3>
+    <p>
+      Part 1：12〜15問正解 → 上級レベル　8〜11問 → 中級レベル　7問以下 → 基礎を復習<br>
+      Part 2：8〜10問正解 → 上級レベル　5〜7問 → 中級レベル　4問以下 → 各セクションの解説を再読してください
+    </p>
+  </div>
+</section>
+
+</div><!-- /container -->
+
+<script>
+function switchTab(name) {
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  const panel = document.getElementById(name);
+  if (panel) panel.classList.add('active');
+  const btn = document.querySelector('.tab-btn[data-tab="' + name + '"]');
+  if (btn) { btn.classList.add('active'); btn.scrollIntoView({block:'nearest', inline:'center'}); }
+  window.scrollTo({top: 0, behavior: 'smooth'});
+}
+</script>
+</body>
+</html>
