@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>関係詞・接続詞文の作り方 — What / When / Where / Which / How</title>
+<title>関係詞・接続詞文の作り方 — Who / That / Whose / What / When / Where / Which / How / Why</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,700;1,400&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
 <style>
@@ -22,6 +22,11 @@
     --accent3: #c0613a;   /* where – 赤橙 */
     --accent4: #7b5ea7;   /* which – 紫 */
     --accent5: #c09d3f;   /* how   – 金 */
+    --accent6: #c0396a;   /* who   – ピンク */
+    --accent7: #3a9e8e;   /* that  – ティール */
+    --accent8: #9e6b3a;   /* whose – ブラウン */
+    --accent9: #5a7ab0;   /* why   – スレート */
+    --accentA: #7a9e3a;   /* 省略  – オリーブ */
     --shadow:  0 4px 24px rgba(13,27,42,.18);
   }
 
@@ -140,8 +145,13 @@
   .tab-btn[data-tab="where"].active  { color: var(--accent3); border-bottom-color: var(--accent3); }
   .tab-btn[data-tab="which"].active  { color: var(--accent4); border-bottom-color: var(--accent4); }
   .tab-btn[data-tab="how"].active    { color: var(--accent5); border-bottom-color: var(--accent5); }
-  .tab-btn[data-tab="table"].active  { color: var(--gold);   border-bottom-color: var(--gold); }
-  .tab-btn[data-tab="quiz"].active   { color: #e07070;       border-bottom-color: #e07070; }
+  .tab-btn[data-tab="table"].active   { color: var(--gold);       border-bottom-color: var(--gold); }
+  .tab-btn[data-tab="quiz"].active    { color: #e07070;           border-bottom-color: #e07070; }
+  .tab-btn[data-tab="who"].active     { color: var(--accent6);    border-bottom-color: var(--accent6); }
+  .tab-btn[data-tab="relthat"].active { color: var(--accent7);    border-bottom-color: var(--accent7); }
+  .tab-btn[data-tab="whose"].active   { color: var(--accent8);    border-bottom-color: var(--accent8); }
+  .tab-btn[data-tab="why"].active     { color: var(--accent9);    border-bottom-color: var(--accent9); }
+  .tab-btn[data-tab="omit"].active    { color: var(--accentA);    border-bottom-color: var(--accentA); }
 
   /* ─── CONTENT ────────────────────────────────────── */
   .container { max-width: 880px; margin: 0 auto; padding: 0 20px 80px; }
@@ -171,16 +181,32 @@
   .sec-head .en { font-family: 'Fira Code', monospace; font-size: 13px; opacity: .6; margin-top: 2px; }
 
   /* accent colors per section */
-  #what  .sec-head { border-color: var(--accent1); }
-  #what  .sec-icon { background: var(--accent1); }
-  #when  .sec-head { border-color: var(--accent2); }
-  #when  .sec-icon { background: var(--accent2); }
-  #where .sec-head { border-color: var(--accent3); }
-  #where .sec-icon { background: var(--accent3); }
-  #which .sec-head { border-color: var(--accent4); }
-  #which .sec-icon { background: var(--accent4); }
-  #how   .sec-head { border-color: var(--accent5); }
-  #how   .sec-icon { background: var(--accent5); }
+  #what   .sec-head { border-color: var(--accent1); }
+  #what   .sec-icon { background: var(--accent1); }
+  #when   .sec-head { border-color: var(--accent2); }
+  #when   .sec-icon { background: var(--accent2); }
+  #where  .sec-head { border-color: var(--accent3); }
+  #where  .sec-icon { background: var(--accent3); }
+  #which  .sec-head { border-color: var(--accent4); }
+  #which  .sec-icon { background: var(--accent4); }
+  #how    .sec-head { border-color: var(--accent5); }
+  #how    .sec-icon { background: var(--accent5); }
+  #who    .sec-head { border-color: var(--accent6); }
+  #who    .sec-icon { background: var(--accent6); }
+  #relthat .sec-head { border-color: var(--accent7); }
+  #relthat .sec-icon { background: var(--accent7); }
+  #whose  .sec-head { border-color: var(--accent8); }
+  #whose  .sec-icon { background: var(--accent8); }
+  #why    .sec-head { border-color: var(--accent9); }
+  #why    .sec-icon { background: var(--accent9); }
+  #omit   .sec-head { border-color: var(--accentA); }
+  #omit   .sec-icon { background: var(--accentA); }
+  /* list border colors for new sections */
+  #who    .ex-list li { border-left-color: var(--accent6); }
+  #relthat .ex-list li { border-left-color: var(--accent7); }
+  #whose  .ex-list li { border-left-color: var(--accent8); }
+  #why    .ex-list li { border-left-color: var(--accent9); }
+  #omit   .ex-list li { border-left-color: var(--accentA); }
 
   /* ─── RULE CARD ──────────────────────────────────── */
   .rule-card {
@@ -384,14 +410,19 @@
 <!-- ══════════════ HEADER ══════════════ -->
 <header>
   <div class="badge">Adult English Grammar</div>
-  <h1>関係詞・接続詞文の作り方<br><span>What · When · Where · Which · How</span></h1>
-  <p class="subtitle">大人のための実践英文法 — 用法・例文・練習問題を完全収録</p>
+  <h1>関係詞・接続詞文の作り方<br><span>Who · That · Whose · What · When · Where · Which · How · Why</span></h1>
+  <p class="subtitle">初心者〜上級者のための実践英文法 — 用法・例文・練習問題を完全収録</p>
   <div class="keywords">
+    <span class="kw" onclick="switchTab('who')">Who/Whom</span>
+    <span class="kw" onclick="switchTab('relthat')">That</span>
+    <span class="kw" onclick="switchTab('whose')">Whose</span>
     <span class="kw" onclick="switchTab('what')">What</span>
     <span class="kw" onclick="switchTab('when')">When</span>
     <span class="kw" onclick="switchTab('where')">Where</span>
     <span class="kw" onclick="switchTab('which')">Which</span>
     <span class="kw" onclick="switchTab('how')">How</span>
+    <span class="kw" onclick="switchTab('why')">Why</span>
+    <span class="kw" onclick="switchTab('omit')">省略</span>
     <span class="kw" onclick="switchTab('table')">比較表</span>
     <span class="kw" onclick="switchTab('quiz')">練習問題</span>
   </div>
@@ -399,13 +430,18 @@
 
 <!-- ══════════════ TAB NAV ══════════════ -->
 <nav class="tab-nav">
-  <button class="tab-btn active" data-tab="what"  onclick="switchTab('what')">① What</button>
-  <button class="tab-btn"        data-tab="when"  onclick="switchTab('when')">② When</button>
-  <button class="tab-btn"        data-tab="where" onclick="switchTab('where')">③ Where</button>
-  <button class="tab-btn"        data-tab="which" onclick="switchTab('which')">④ Which</button>
-  <button class="tab-btn"        data-tab="how"   onclick="switchTab('how')">⑤ How</button>
-  <button class="tab-btn"        data-tab="table" onclick="switchTab('table')">📊 比較対照表</button>
-  <button class="tab-btn"        data-tab="quiz"  onclick="switchTab('quiz')">✏️ 練習問題</button>
+  <button class="tab-btn active" data-tab="who"     onclick="switchTab('who')">① Who/Whom</button>
+  <button class="tab-btn"        data-tab="relthat" onclick="switchTab('relthat')">② That</button>
+  <button class="tab-btn"        data-tab="whose"   onclick="switchTab('whose')">③ Whose</button>
+  <button class="tab-btn"        data-tab="what"    onclick="switchTab('what')">④ What</button>
+  <button class="tab-btn"        data-tab="when"    onclick="switchTab('when')">⑤ When</button>
+  <button class="tab-btn"        data-tab="where"   onclick="switchTab('where')">⑥ Where</button>
+  <button class="tab-btn"        data-tab="which"   onclick="switchTab('which')">⑦ Which</button>
+  <button class="tab-btn"        data-tab="how"     onclick="switchTab('how')">⑧ How</button>
+  <button class="tab-btn"        data-tab="why"     onclick="switchTab('why')">⑨ Why</button>
+  <button class="tab-btn"        data-tab="omit"    onclick="switchTab('omit')">⑩ 省略</button>
+  <button class="tab-btn"        data-tab="table"   onclick="switchTab('table')">📊 比較対照表</button>
+  <button class="tab-btn"        data-tab="quiz"    onclick="switchTab('quiz')">✏️ 練習問題</button>
 </nav>
 
 <!-- ══════════════ CONTAINER ══════════════ -->
@@ -414,7 +450,474 @@
 <!-- ────────────────────────────────────────────────
      ① WHAT
 ──────────────────────────────────────────────── -->
-<section id="what" class="tab-panel active">
+<section id="who" class="tab-panel active">
+  <div class="sec-head">
+    <div class="sec-icon">W</div>
+    <div>
+      <h2>Who / Whom — 関係代名詞（人）</h2>
+      <div class="en">Relative Pronoun for People</div>
+    </div>
+  </div>
+
+  <div class="rule-card">
+    <h3>核心ルール：先行詞が「人」のときは who / whom</h3>
+    <p>
+      <strong>who</strong> は先行詞が <em>人</em> のときに使う関係代名詞です。<br>
+      節の中で <strong>主語</strong> になる場合は <em>who</em>、<strong>目的語</strong> になる場合は <em>whom</em>（口語では who も可）を使います。<br>
+      <em>which</em> は「もの・動物」、<em>who</em> は「人」— これが基本の使い分けです。
+    </p>
+    <div class="formula">先行詞（人） + who + V …（whoが主語）<br>先行詞（人） + who(m) + S + V …（who(m)が目的語）</div>
+  </div>
+
+  <div class="sub-h">① 主語として使う who（もっとも基本）</div>
+  <ul class="ex-list">
+    <li>
+      <span class="level-badge lv-basic">基礎</span>
+      <div class="en-sent">I have a friend <em>who</em> speaks five languages.</div>
+      <div class="ja-sent">私には5ヶ国語を話す友人がいる。（who = my friend、speaks の主語）</div>
+    </li>
+    <li>
+      <span class="level-badge lv-basic">基礎</span>
+      <div class="en-sent">The doctor <em>who</em> treated me was very kind.</div>
+      <div class="ja-sent">私を診てくれた医師はとても親切だった。</div>
+    </li>
+    <li>
+      <span class="level-badge lv-basic">基礎</span>
+      <div class="en-sent">A person <em>who</em> never makes mistakes never learns.</div>
+      <div class="ja-sent">失敗しない人は学ばない。</div>
+    </li>
+    <li>
+      <span class="level-badge lv-mid">中級</span>
+      <div class="en-sent">The students <em>who</em> passed the exam were given certificates.</div>
+      <div class="ja-sent">試験に合格した学生たちは証明書を受け取った。</div>
+    </li>
+    <li>
+      <span class="level-badge lv-mid">中級</span>
+      <div class="en-sent">Anyone <em>who</em> wants to join should sign up by Friday.</div>
+      <div class="ja-sent">参加したい方は金曜日までに登録してください。</div>
+    </li>
+  </ul>
+
+  <div class="sub-h">② 目的語として使う whom（フォーマル）/ who（口語）</div>
+  <div class="tip-box">
+    <strong>💡 who vs. whom</strong><br>
+    節の中で目的語になる場合、フォーマルな文書では <em>whom</em> が正しいとされますが、<br>
+    日常会話・メールでは <em>who</em> を使うのが一般的です。また関係代名詞を省略することも多いです。
+  </div>
+  <ul class="ex-list">
+    <li>
+      <span class="level-badge lv-basic">基礎</span>
+      <div class="en-sent">The man <em>who(m)</em> I met yesterday was interesting.</div>
+      <div class="ja-sent">昨日会った男性はおもしろい人だった。（met の目的語）</div>
+    </li>
+    <li>
+      <span class="level-badge lv-mid">中級</span>
+      <div class="en-sent">She is the colleague <em>whom</em> I respect the most.</div>
+      <div class="ja-sent">彼女は私が最も尊敬する同僚だ。（フォーマル表現）</div>
+    </li>
+    <li>
+      <span class="level-badge lv-mid">中級</span>
+      <div class="en-sent">The person <em>to whom</em> I spoke was very helpful.</div>
+      <div class="ja-sent">私が話しかけた人はとても親切だった。（前置詞＋whom）</div>
+    </li>
+  </ul>
+
+  <div class="sub-h">③ 非制限用法（カンマ＋who）</div>
+  <ul class="ex-list">
+    <li>
+      <span class="level-badge lv-mid">中級</span>
+      <div class="en-sent">My brother, <em>who</em> lives in Osaka, called me last night.</div>
+      <div class="ja-sent">大阪に住んでいる私の兄が昨夜電話してきた。（補足情報）</div>
+    </li>
+    <li>
+      <span class="level-badge lv-adv">応用</span>
+      <div class="en-sent">Einstein, <em>who</em> developed the theory of relativity, changed physics forever.</div>
+      <div class="ja-sent">相対性理論を発展させたアインシュタインは物理学を永遠に変えた。</div>
+    </li>
+  </ul>
+
+  <div class="warn-box">
+    <strong>⚠ who と which の混同に注意</strong><br>
+    ✗ <code style="font-family:'Fira Code',monospace">I have a friend <u>which</u> speaks Chinese.</code><br>
+    ✓ <code style="font-family:'Fira Code',monospace">I have a friend <u>who</u> speaks Chinese.</code><br><br>
+    先行詞が人なら必ず <em>who</em> を使います。ペットや動物は which / that どちらも可。
+  </div>
+</section>
+
+<!-- ─── THAT ─── -->
+<section id="relthat" class="tab-panel">
+  <div class="sec-head">
+    <div class="sec-icon">T</div>
+    <div>
+      <h2>That — 万能関係代名詞</h2>
+      <div class="en">All-Purpose Relative Pronoun</div>
+    </div>
+  </div>
+
+  <div class="rule-card">
+    <h3>核心ルール：that は who / which の代わりに使える</h3>
+    <p>
+      <strong>that</strong> は先行詞が「人」でも「もの」でも使える万能の関係代名詞です。<br>
+      ただし <em>カンマのある非制限用法では that は使えません</em>（必ず who / which を使う）。<br>
+      また、<em>前置詞の直後には that は置けません</em>（× in that → ○ in which）。
+    </p>
+    <div class="formula">先行詞（人・もの） + that + S + V …（不完全な文）<br>※カンマあり・前置詞直後では使えない</div>
+  </div>
+
+  <div class="sub-h">① 人・ものどちらにも使える that</div>
+  <ul class="ex-list">
+    <li>
+      <span class="level-badge lv-basic">基礎</span>
+      <div class="en-sent">The book <em>that</em> I read was amazing.</div>
+      <div class="ja-sent">私が読んだ本は素晴らしかった。（もの）</div>
+    </li>
+    <li>
+      <span class="level-badge lv-basic">基礎</span>
+      <div class="en-sent">The man <em>that</em> called you is waiting outside.</div>
+      <div class="ja-sent">あなたに電話してきた男性が外で待っています。（人）</div>
+    </li>
+    <li>
+      <span class="level-badge lv-basic">基礎</span>
+      <div class="en-sent">Everything <em>that</em> I own fits in one suitcase.</div>
+      <div class="ja-sent">私が持っているものすべてがスーツケース1つに収まる。</div>
+    </li>
+  </ul>
+
+  <div class="sub-h">② that が特に好まれる場面</div>
+  <div class="tip-box">
+    <strong>💡 that を使うべき（推奨される）場面</strong><br>
+    ① 先行詞に <strong>最上級・序数</strong> がつく場合（the best, the first, the only...）<br>
+    ② 先行詞が <strong>all / every / no / any / -thing / -body</strong> などの場合<br>
+    ③ 先行詞が <strong>人とものの両方</strong> を含む場合
+  </div>
+  <ul class="ex-list">
+    <li>
+      <span class="level-badge lv-mid">中級</span>
+      <div class="en-sent">She is the best teacher <em>that</em> I have ever had.</div>
+      <div class="ja-sent">彼女は私がこれまで出会った中で最高の先生だ。（最上級 → that 推奨）</div>
+    </li>
+    <li>
+      <span class="level-badge lv-mid">中級</span>
+      <div class="en-sent">He was the first person <em>that</em> arrived at the venue.</div>
+      <div class="ja-sent">彼は会場に最初に到着した人だった。（序数 → that 推奨）</div>
+    </li>
+    <li>
+      <span class="level-badge lv-mid">中級</span>
+      <div class="en-sent">There is nothing <em>that</em> I can do about it.</div>
+      <div class="ja-sent">それについて私にできることは何もない。（nothing → that）</div>
+    </li>
+    <li>
+      <span class="level-badge lv-mid">中級</span>
+      <div class="en-sent">The only thing <em>that</em> matters is your health.</div>
+      <div class="ja-sent">唯一重要なことはあなたの健康だ。（the only → that 推奨）</div>
+    </li>
+    <li>
+      <span class="level-badge lv-adv">応用</span>
+      <div class="en-sent">All the people and things <em>that</em> I care about are here.</div>
+      <div class="ja-sent">私が大切にしている人もものもすべてここにある。（人＋もの → that）</div>
+    </li>
+  </ul>
+
+  <div class="sub-h">③ that を使えない場面（注意）</div>
+  <ul class="ex-list">
+    <li>
+      <span class="level-badge lv-mid">中級</span>
+      <div class="en-sent">My sister, <em>who</em> lives in Tokyo, is a designer. ← ✓<br>× My sister, <em>that</em> lives in Tokyo, is a designer. ← 誤り</div>
+      <div class="ja-sent">カンマあり（非制限用法）には that は使えない。</div>
+    </li>
+    <li>
+      <span class="level-badge lv-adv">応用</span>
+      <div class="en-sent">The office <em>in which</em> she works is nearby. ← ✓<br>× The office <em>in that</em> she works is nearby. ← 誤り</div>
+      <div class="ja-sent">前置詞の直後には that は置けない。</div>
+    </li>
+  </ul>
+
+  <div class="warn-box">
+    <strong>⚠ 接続詞 that と関係代名詞 that の違い</strong><br>
+    接続詞 that：<code style="font-family:'Fira Code',monospace">I know <u>that</u> she is busy.</code> → 後ろが <strong>完全な文</strong><br>
+    関係代名詞 that：<code style="font-family:'Fira Code',monospace">The book <u>that</u> I read was good.</code> → 後ろが <strong>不完全な文</strong>（read の目的語欠如）<br>
+    判断基準：後ろの文が完全かどうかを確認しましょう。
+  </div>
+</section>
+
+<!-- ─── WHOSE ─── -->
+<section id="whose" class="tab-panel">
+  <div class="sec-head">
+    <div class="sec-icon">W</div>
+    <div>
+      <h2>Whose — 所有格の関係代名詞</h2>
+      <div class="en">Possessive Relative Pronoun</div>
+    </div>
+  </div>
+
+  <div class="rule-card">
+    <h3>核心ルール：whose = 先行詞の「〜の」</h3>
+    <p>
+      <strong>whose</strong> は先行詞の所有を示す関係代名詞で、「〜の」という意味を持ちます。<br>
+      先行詞は <em>人でもものでも</em> 使えます（人の場合が最多ですが、無生物・組織にも使われます）。<br>
+      whose の後ろには必ず <strong>名詞</strong> が続きます。
+    </p>
+    <div class="formula">先行詞 + whose + 名詞 + V …<br>= 先行詞（の名詞） → whose がその「の」を担う</div>
+  </div>
+
+  <div class="sub-h">① 人を先行詞にとる whose</div>
+  <ul class="ex-list">
+    <li>
+      <span class="level-badge lv-basic">基礎</span>
+      <div class="en-sent">I know a girl <em>whose</em> father is a famous chef.</div>
+      <div class="ja-sent">父親が有名なシェフの女の子を知っている。（her father → whose father）</div>
+    </li>
+    <li>
+      <span class="level-badge lv-basic">基礎</span>
+      <div class="en-sent">The student <em>whose</em> essay won first place is in my class.</div>
+      <div class="ja-sent">エッセイが1位を取った生徒は私のクラスにいる。</div>
+    </li>
+    <li>
+      <span class="level-badge lv-mid">中級</span>
+      <div class="en-sent">He is the doctor <em>whose</em> research changed cancer treatment.</div>
+      <div class="ja-sent">彼はがん治療を変えた研究をした医師だ。</div>
+    </li>
+    <li>
+      <span class="level-badge lv-mid">中級</span>
+      <div class="en-sent">I admire people <em>whose</em> words match their actions.</div>
+      <div class="ja-sent">言葉と行動が一致している人を尊敬する。</div>
+    </li>
+  </ul>
+
+  <div class="sub-h">② ものや組織を先行詞にとる whose</div>
+  <div class="tip-box">
+    <strong>💡 無生物にも whose は使える</strong><br>
+    「もの」の所有を表す場合、<em>whose</em> のほかに <em>of which the</em> を使うこともできます（フォーマル）。<br>
+    ただし whose のほうが自然で一般的です。
+  </div>
+  <ul class="ex-list">
+    <li>
+      <span class="level-badge lv-mid">中級</span>
+      <div class="en-sent">I bought a car <em>whose</em> fuel efficiency is excellent.</div>
+      <div class="ja-sent">燃費が優れている車を買った。（= a car the fuel efficiency of which is excellent）</div>
+    </li>
+    <li>
+      <span class="level-badge lv-mid">中級</span>
+      <div class="en-sent">They work for a company <em>whose</em> values align with theirs.</div>
+      <div class="ja-sent">彼らは自分たちの価値観と合致した会社で働いている。</div>
+    </li>
+    <li>
+      <span class="level-badge lv-adv">応用</span>
+      <div class="en-sent">This is a building <em>whose</em> history spans over 200 years.</div>
+      <div class="ja-sent">これは200年以上の歴史を持つ建物だ。</div>
+    </li>
+  </ul>
+
+  <div class="sub-h">③ 非制限用法（カンマ＋whose）</div>
+  <ul class="ex-list">
+    <li>
+      <span class="level-badge lv-adv">応用</span>
+      <div class="en-sent">Picasso, <em>whose</em> works are priceless, was born in Spain.</div>
+      <div class="ja-sent">作品が貴重なピカソはスペイン生まれだ。</div>
+    </li>
+    <li>
+      <span class="level-badge lv-adv">応用</span>
+      <div class="en-sent">The new policy, <em>whose</em> impact is still unclear, was announced yesterday.</div>
+      <div class="ja-sent">その影響がまだ不明な新しい政策が昨日発表された。</div>
+    </li>
+  </ul>
+
+  <div class="warn-box">
+    <strong>⚠ whose と who's の違い</strong><br>
+    <em>whose</em> = 所有格の関係代名詞 → <code style="font-family:'Fira Code',monospace">the man <u>whose</u> car was stolen</code><br>
+    <em>who's</em> = who is / who has の短縮形 → <code style="font-family:'Fira Code',monospace"><u>Who's</u> coming to the party?</code><br>
+    発音は同じですが意味と用法がまったく異なります。
+  </div>
+</section>
+
+<!-- ─── WHY ─── -->
+<section id="why" class="tab-panel">
+  <div class="sec-head">
+    <div class="sec-icon">W</div>
+    <div>
+      <h2>Why — 関係副詞（理由）</h2>
+      <div class="en">Relative Adverb of Reason</div>
+    </div>
+  </div>
+
+  <div class="rule-card">
+    <h3>核心ルール：reason ＋ why（理由を説明する）</h3>
+    <p>
+      <strong>why</strong> は <em>reason（理由）</em> を先行詞にとる関係副詞です。<br>
+      「〜する理由」を表し、<em>for which</em> に言い換えることができます。<br>
+      また、<em>reason</em> を省略して <em>why</em> だけで使うこともできます（口語では一般的）。
+    </p>
+    <div class="formula">the reason + why + S + V（完全な文）<br>= the reason + for which + S + V<br>= the reason + that + S + V（口語）</div>
+  </div>
+
+  <div class="sub-h">① 関係副詞として（reason ＋ why）</div>
+  <ul class="ex-list">
+    <li>
+      <span class="level-badge lv-basic">基礎</span>
+      <div class="en-sent">That is the reason <em>why</em> I quit.</div>
+      <div class="ja-sent">それが私が辞めた理由だ。</div>
+    </li>
+    <li>
+      <span class="level-badge lv-basic">基礎</span>
+      <div class="en-sent">I don't understand the reason <em>why</em> she is angry.</div>
+      <div class="ja-sent">彼女が怒っている理由が分からない。</div>
+    </li>
+    <li>
+      <span class="level-badge lv-mid">中級</span>
+      <div class="en-sent">The reason <em>why</em> he succeeded is his persistence.</div>
+      <div class="ja-sent">彼が成功した理由は粘り強さだ。</div>
+    </li>
+    <li>
+      <span class="level-badge lv-mid">中級</span>
+      <div class="en-sent">Explain the reason <em>why</em> you were late.</div>
+      <div class="ja-sent">遅刻した理由を説明してください。</div>
+    </li>
+  </ul>
+
+  <div class="sub-h">② for which への書き換え・reason の省略</div>
+  <ul class="ex-list">
+    <li>
+      <span class="level-badge lv-mid">中級</span>
+      <div class="en-sent">
+        That is the reason <em>why</em> I left.<br>
+        = That is the reason <em>for which</em> I left.<br>
+        = That is <em>why</em> I left.（reason を省略）<br>
+        = That is the reason <em>（省略）</em> I left.（why を省略）
+      </div>
+      <div class="ja-sent">それが私が去った理由だ。（4通りすべて正しい）</div>
+    </li>
+  </ul>
+
+  <div class="sub-h">③ 接続詞・間接疑問文としての why</div>
+  <ul class="ex-list">
+    <li>
+      <span class="level-badge lv-basic">基礎</span>
+      <div class="en-sent">I don't know <em>why</em> he left so early.</div>
+      <div class="ja-sent">なぜ彼がそんなに早く去ったか分からない。（間接疑問文・名詞節）</div>
+    </li>
+    <li>
+      <span class="level-badge lv-mid">中級</span>
+      <div class="en-sent">Tell me <em>why</em> you changed your mind.</div>
+      <div class="ja-sent">なぜ考えを変えたか教えてください。</div>
+    </li>
+    <li>
+      <span class="level-badge lv-mid">中級</span>
+      <div class="en-sent">That is <em>why</em> I came here.</div>
+      <div class="ja-sent">だからこそ私はここに来た。（"That is why" = そういうわけで）</div>
+    </li>
+    <li>
+      <span class="level-badge lv-adv">応用</span>
+      <div class="en-sent">This is <em>why</em> communication skills matter in any profession.</div>
+      <div class="ja-sent">これがどんな職業でもコミュニケーション能力が重要な理由だ。</div>
+    </li>
+  </ul>
+
+  <div class="tip-box">
+    <strong>💡 "That is why" vs. "That is because"</strong><br>
+    <em>That is <u>why</u> ...</em>　 = 「だから〜だ」（結果を述べる）<br>
+    <em>That is <u>because</u> ...</em> = 「なぜなら〜だから」（原因を述べる）<br><br>
+    例：I was tired. <em>That is why</em> I went to bed early.（結果：早く寝た）<br>
+    例：I went to bed early. <em>That is because</em> I was tired.（理由：疲れていたから）
+  </div>
+</section>
+
+<!-- ─── OMISSION ─── -->
+<section id="omit" class="tab-panel">
+  <div class="sec-head">
+    <div class="sec-icon">Ø</div>
+    <div>
+      <h2>関係代名詞の省略</h2>
+      <div class="en">Omission of Relative Pronouns</div>
+    </div>
+  </div>
+
+  <div class="rule-card">
+    <h3>核心ルール：目的格の関係代名詞は省略できる</h3>
+    <p>
+      関係代名詞（who / whom / which / that）が節の中で <strong>目的語</strong> になっている場合、省略することができます。<br>
+      一方、<strong>主語</strong> になっている場合は省略できません。<br>
+      省略された形を <em>接触節（contact clause）</em> と呼び、特に口語・日常文でよく使われます。
+    </p>
+    <div class="formula">省略できる：先行詞 ＋ (that/who/which) ＋ S ＋ V ← 目的格<br>省略できない：先行詞 ＋ who/which/that ＋ V ← 主格（省略するとVが2つ並ぶ）</div>
+  </div>
+
+  <div class="sub-h">① 省略できる場合（目的格）</div>
+  <ul class="ex-list">
+    <li>
+      <span class="level-badge lv-basic">基礎</span>
+      <div class="en-sent">The book <em>(that)</em> I bought yesterday is great.</div>
+      <div class="ja-sent">昨日買った本は素晴らしい。（bought の目的語 → 省略可）</div>
+    </li>
+    <li>
+      <span class="level-badge lv-basic">基礎</span>
+      <div class="en-sent">The person <em>(who/whom)</em> I met at the conference was inspiring.</div>
+      <div class="ja-sent">会議で会った人はとても感銘を受けた。（met の目的語 → 省略可）</div>
+    </li>
+    <li>
+      <span class="level-badge lv-mid">中級</span>
+      <div class="en-sent">Is this the movie <em>(that)</em> you recommended?</div>
+      <div class="ja-sent">これがあなたが勧めた映画ですか？</div>
+    </li>
+    <li>
+      <span class="level-badge lv-mid">中級</span>
+      <div class="en-sent">The coffee <em>(that)</em> she makes is the best I've ever had.</div>
+      <div class="ja-sent">彼女が作るコーヒーは今まで飲んだ中で一番だ。</div>
+    </li>
+  </ul>
+
+  <div class="sub-h">② 省略できない場合（主格）</div>
+  <div class="warn-box">
+    <strong>⚠ 主格の関係代名詞は省略不可</strong><br>
+    ✗ <code style="font-family:'Fira Code',monospace">The man <u>（省略）</u> called you is outside.</code>（×  called の主語が消えてしまう）<br>
+    ✓ <code style="font-family:'Fira Code',monospace">The man <u>who</u> called you is outside.</code>（○）<br><br>
+    見分け方：関係詞の直後に <strong>動詞</strong> が来ていたら主格 → 省略不可
+  </div>
+  <ul class="ex-list">
+    <li>
+      <span class="level-badge lv-basic">基礎</span>
+      <div class="en-sent">The woman <em>who</em> lives next door is a nurse. ← 省略不可（who が lives の主語）</div>
+      <div class="ja-sent">隣に住む女性は看護師だ。</div>
+    </li>
+    <li>
+      <span class="level-badge lv-mid">中級</span>
+      <div class="en-sent">The email <em>that</em> arrived this morning was urgent. ← 省略不可（that が arrived の主語）</div>
+      <div class="ja-sent">今朝届いたメールは緊急だった。</div>
+    </li>
+  </ul>
+
+  <div class="sub-h">③ 省略の判断フローチャート</div>
+  <div class="rule-card" style="border-left-color: var(--accentA);">
+    <h3>3ステップで省略可能かチェック</h3>
+    <p>
+      <strong style="color:var(--gold2)">Step 1</strong>：関係代名詞を取り除いてみる<br>
+      <strong style="color:var(--gold2)">Step 2</strong>：残った節（S＋V）が成立するか確認<br>
+      <strong style="color:var(--gold2)">Step 3</strong>：成立する → 省略可　／　主語が消える → 省略不可<br><br>
+      例：The book <em>（that）</em> I read →「I read」は完全（read の目的語が that だったから省略可）<br>
+      例：The book <em>（that）</em> was on the desk → 「was on the desk」の主語が消える → 省略不可
+    </p>
+  </div>
+
+  <div class="sub-h">④ 省略が自然な表現・口語フレーズ</div>
+  <ul class="ex-list">
+    <li>
+      <span class="level-badge lv-basic">基礎</span>
+      <div class="en-sent">Everything <em>（that）</em> you said made sense.</div>
+      <div class="ja-sent">あなたの言ったことはすべて理にかなっていた。</div>
+    </li>
+    <li>
+      <span class="level-badge lv-mid">中級</span>
+      <div class="en-sent">The project <em>（that）</em> we finished last week won an award.</div>
+      <div class="ja-sent">先週終わらせたプロジェクトが賞を受賞した。</div>
+    </li>
+    <li>
+      <span class="level-badge lv-adv">応用</span>
+      <div class="en-sent">The skills <em>（that）</em> you develop now will serve you for life.</div>
+      <div class="ja-sent">今あなたが身につけているスキルは一生役立つだろう。</div>
+    </li>
+  </ul>
+</section>
+
+<section id="what" class="tab-panel">
   <div class="sec-head">
     <div class="sec-icon">W</div>
     <div>
@@ -1016,6 +1519,33 @@
       </thead>
       <tbody>
         <tr>
+          <td style="color:var(--accent6)">who<br><small style="color:#aaa">whom</small></td>
+          <td>
+            <span class="chip" style="background:#fce7f3;color:#9d174d">関係代名詞</span>
+          </td>
+          <td><strong>人</strong><br>person / man / woman…</td>
+          <td>不完全な文<br>（S or O 欠如）</td>
+          <td>主格 who → 省略不可<br>目的格 whom → 省略可</td>
+        </tr>
+        <tr>
+          <td style="color:var(--accent7)">that</td>
+          <td>
+            <span class="chip" style="background:#ccfbf1;color:#134e4a">関係代名詞</span>
+          </td>
+          <td><strong>人・もの両方</strong><br>万能型</td>
+          <td>不完全な文<br>（S or O 欠如）</td>
+          <td>who / which の代替<br>※非制限・前置詞直後は不可</td>
+        </tr>
+        <tr>
+          <td style="color:var(--accent8)">whose</td>
+          <td>
+            <span class="chip" style="background:#fef3c7;color:#78350f">関係代名詞<br>（所有格）</span>
+          </td>
+          <td><strong>人・もの両方</strong><br>「〜の」を表す</td>
+          <td>whose + 名詞 + V<br>（名詞が必ず続く）</td>
+          <td>of which the（フォーマル）</td>
+        </tr>
+        <tr>
           <td style="color:var(--accent1)">what</td>
           <td>
             <span class="chip" style="background:#dbeafe;color:#1e40af">関係代名詞</span>
@@ -1031,7 +1561,7 @@
             <span class="chip" style="background:#dcfce7;color:#166534">関係副詞</span>
             <span class="chip" style="background:#dcfce7;color:#166534">接続詞</span>
           </td>
-          <td>時を表す名詞<br>time / day / year…</td>
+          <td><strong>時</strong>を表す名詞<br>time / day / year…</td>
           <td>完全な文</td>
           <td>at/in/on which<br>that（省略可）</td>
         </tr>
@@ -1041,7 +1571,7 @@
             <span class="chip" style="background:#ffedd5;color:#9a3412">関係副詞</span>
             <span class="chip" style="background:#ffedd5;color:#9a3412">接続詞</span>
           </td>
-          <td>場所・状況を表す名詞<br>place / city / situation…</td>
+          <td><strong>場所・状況</strong>を表す名詞<br>place / city / situation…</td>
           <td>完全な文</td>
           <td>in/at which<br>that（省略可）</td>
         </tr>
@@ -1051,7 +1581,7 @@
             <span class="chip" style="background:#ede9fe;color:#5b21b6">関係代名詞</span>
             <span class="chip" style="background:#ede9fe;color:#5b21b6">間接疑問詞</span>
           </td>
-          <td>もの・事柄<br>（人以外が基本）</td>
+          <td><strong>もの・事柄</strong><br>（人以外が基本）</td>
           <td>不完全な文<br>（O 欠如など）</td>
           <td>that（制限用法）<br>※非制限はthat不可</td>
         </tr>
@@ -1061,9 +1591,19 @@
             <span class="chip" style="background:#fef9c3;color:#854d0e">接続詞</span>
             <span class="chip" style="background:#fef9c3;color:#854d0e">間接疑問詞</span>
           </td>
-          <td>方法・程度<br>（the way が先行詞）</td>
+          <td><strong>方法・程度</strong><br>（the way が先行詞）</td>
           <td>完全な文<br>(平叙文語順)</td>
           <td>the way (in which)<br>※the way how は✗</td>
+        </tr>
+        <tr>
+          <td style="color:var(--accent9)">why</td>
+          <td>
+            <span class="chip" style="background:#dbeafe;color:#1e3a8a">関係副詞</span>
+            <span class="chip" style="background:#dbeafe;color:#1e3a8a">間接疑問詞</span>
+          </td>
+          <td><strong>理由</strong>を表す名詞<br>reason</td>
+          <td>完全な文</td>
+          <td>for which<br>that（口語）／省略可</td>
         </tr>
       </tbody>
     </table>
@@ -1749,15 +2289,203 @@
     </div>
   </div>
 
+  <!-- PART 6: New topics Who/That/Whose/Why/Omission -->
+  <div class="quiz-section">
+    <h3>Part 6 — 【新単元】Who / That / Whose / Why / 省略（全15問）</h3>
+    <p style="font-size:13px; color:#666; margin-bottom:20px;">新しく追加された5単元の総合問題です。空所補充・誤文訂正・英作文が混在します。</p>
+
+    <!-- NQ1 -->
+    <div class="q-card basic">
+      <div class="q-num">NQ1 · 基礎 ｜ who</div>
+      <div class="q-text">I have a sister <span class="blank">　　　</span> is a nurse.</div>
+      <div class="q-ja">私には看護師の姉がいる。</div>
+      <details><summary>▼ 答えを見る</summary>
+        <div class="answer-box">答え：<em>who</em><br><span class="exp">先行詞 sister（人）＋ who が is の主語。which は人に使えない。</span></div>
+      </details>
+    </div>
+
+    <!-- NQ2 -->
+    <div class="q-card basic">
+      <div class="q-num">NQ2 · 基礎 ｜ that</div>
+      <div class="q-text">She is the best cook <span class="blank">　　　</span> I know.</div>
+      <div class="q-ja">彼女は私が知っている中で最高の料理人だ。</div>
+      <details><summary>▼ 答えを見る</summary>
+        <div class="answer-box">答え：<em>that</em>（または whom / who も可）<br><span class="exp">最上級 best がついているため that が特に推奨される。know の目的語欠如。</span></div>
+      </details>
+    </div>
+
+    <!-- NQ3 -->
+    <div class="q-card basic">
+      <div class="q-num">NQ3 · 基礎 ｜ whose</div>
+      <div class="q-text">He is the man <span class="blank">　　　</span> wife is a famous singer.</div>
+      <div class="q-ja">彼は奥さんが有名な歌手の男性だ。</div>
+      <details><summary>▼ 答えを見る</summary>
+        <div class="answer-box">答え：<em>whose</em><br><span class="exp">「彼の奥さん = his wife」→ 所有の関係 → whose。whose + 名詞（wife）が続く形。</span></div>
+      </details>
+    </div>
+
+    <!-- NQ4 -->
+    <div class="q-card basic">
+      <div class="q-num">NQ4 · 基礎 ｜ why</div>
+      <div class="q-text">That is the reason <span class="blank">　　　</span> I came back.</div>
+      <div class="q-ja">それが私が戻ってきた理由だ。</div>
+      <details><summary>▼ 答えを見る</summary>
+        <div class="answer-box">答え：<em>why</em><br><span class="exp">先行詞 reason（理由）＋関係副詞 why。= for which。また why を省略して「the reason I came back」も可。</span></div>
+      </details>
+    </div>
+
+    <!-- NQ5 -->
+    <div class="q-card basic">
+      <div class="q-num">NQ5 · 基礎 ｜ 省略の判断</div>
+      <div class="q-text">次のどちらの関係代名詞が省略できるか答えなさい。<br>
+        a) The movie <em>that</em> won the award was brilliant.<br>
+        b) The movie <em>that</em> I watched last night was brilliant.
+      </div>
+      <div class="q-ja">a と b のどちらの that が省略可能か。</div>
+      <details><summary>▼ 答えを見る</summary>
+        <div class="answer-box">省略できるのは <em>b)</em><br>
+        a) that = won の主語（主格）→ 省略不可<br>
+        b) that = watched の目的語（目的格）→ 省略可<br>
+        <span class="exp">関係代名詞の直後が動詞なら主格（省略不可）、S+V なら目的格（省略可）。</span></div>
+      </details>
+    </div>
+
+    <!-- NQ6 -->
+    <div class="q-card mid">
+      <div class="q-num">NQ6 · 中級 ｜ 誤文訂正 who/which</div>
+      <div class="q-text">The teacher <u>which</u> taught me math was very strict.</div>
+      <div class="q-ja">下線部を正しく直しなさい。</div>
+      <details><summary>▼ 答えを見る</summary>
+        <div class="answer-box">The teacher <em>who</em> taught me math was very strict.<br><span class="exp">先行詞 teacher（人）→ which ではなく who。</span></div>
+      </details>
+    </div>
+
+    <!-- NQ7 -->
+    <div class="q-card mid">
+      <div class="q-num">NQ7 · 中級 ｜ whose vs. who's</div>
+      <div class="q-text">（　）内の正しい方を選びなさい。<br>
+        a) I have a colleague ( whose / who's ) opinion I respect.<br>
+        b) Do you know ( whose / who's ) coming to the party?
+      </div>
+      <div class="q-ja">whose と who's を正しく選べ。</div>
+      <details><summary>▼ 答えを見る</summary>
+        <div class="answer-box">
+          a) <em>whose</em> opinion I respect（所有格の関係代名詞）<br>
+          b) <em>who's</em> coming（= who is coming、間接疑問）<br>
+          <span class="exp">whose = 所有格の関係代名詞。who's = who is/has の短縮形。発音は同じ。</span>
+        </div>
+      </details>
+    </div>
+
+    <!-- NQ8 -->
+    <div class="q-card mid">
+      <div class="q-num">NQ8 · 中級 ｜ that が使えない場面</div>
+      <div class="q-text">My father, <u>that</u> is 65 years old, still goes jogging every day.</div>
+      <div class="q-ja">下線部を正しく直しなさい。理由も述べること。</div>
+      <details><summary>▼ 答えを見る</summary>
+        <div class="answer-box">My father, <em>who</em> is 65 years old, still goes jogging every day.<br><span class="exp">カンマあり（非制限用法）には that は使えない。先行詞が人なので who を使う。</span></div>
+      </details>
+    </div>
+
+    <!-- NQ9 -->
+    <div class="q-card mid">
+      <div class="q-num">NQ9 · 中級 ｜ 英作文 whose</div>
+      <div class="q-text">（英訳せよ）</div>
+      <div class="q-ja">彼女は夢が世界を変えた画家だ。</div>
+      <details><summary>▼ 答えを見る</summary>
+        <div class="answer-box">She is the painter <em>whose</em> dream changed the world.<br><span class="exp">「画家の夢」= the painter's dream → 所有格関係代名詞 whose を使う。</span></div>
+      </details>
+    </div>
+
+    <!-- NQ10 -->
+    <div class="q-card mid">
+      <div class="q-num">NQ10 · 中級 ｜ "That is why" の使い方</div>
+      <div class="q-text">（英訳せよ）</div>
+      <div class="q-ja">彼は毎日練習した。だからこそ上手くなったのだ。</div>
+      <details><summary>▼ 答えを見る</summary>
+        <div class="answer-box">He practiced every day. <em>That is why</em> he got better.<br><span class="exp">That is why … =「だからこそ〜だ」（結果を述べる）。That is because … は原因を述べる形なので逆になる。</span></div>
+      </details>
+    </div>
+
+    <!-- NQ11 -->
+    <div class="q-card mid">
+      <div class="q-num">NQ11 · 中級 ｜ 2文の結合（who）</div>
+      <div class="q-text">I know a man. He can fix any car.</div>
+      <div class="q-ja">who を使って1文にまとめなさい。</div>
+      <details><summary>▼ 答えを見る</summary>
+        <div class="answer-box">I know a man <em>who</em> can fix any car.<br><span class="exp">He（主格）→ who に置き換える。can fix の主語として機能。</span></div>
+      </details>
+    </div>
+
+    <!-- NQ12 -->
+    <div class="q-card adv">
+      <div class="q-num">NQ12 · 応用 ｜ 2文の結合（whose）</div>
+      <div class="q-text">She works at a company. The company's culture is very open.</div>
+      <div class="q-ja">whose を使って1文にまとめなさい。</div>
+      <details><summary>▼ 答えを見る</summary>
+        <div class="answer-box">She works at a company <em>whose</em> culture is very open.<br><span class="exp">The company's culture → whose culture（所有格の関係代名詞に変換）。</span></div>
+      </details>
+    </div>
+
+    <!-- NQ13 -->
+    <div class="q-card adv">
+      <div class="q-num">NQ13 · 応用 ｜ 省略・2通りの表現</div>
+      <div class="q-text">The proposal that she submitted was accepted.</div>
+      <div class="q-ja">① 関係代名詞を省略した形　② whom / which を使わずより自然な表現　を答えなさい。</div>
+      <details><summary>▼ 答えを見る</summary>
+        <div class="answer-box">
+          ① The proposal <em>（she submitted）</em> was accepted.（that を省略）<br>
+          ② 同義。that は目的格なので省略可。<br>
+          ※ submitted の主語は she → that は目的語 → 省略可<br>
+          <span class="exp">省略後も「The proposal she submitted was accepted.」は自然な英文。</span>
+        </div>
+      </details>
+    </div>
+
+    <!-- NQ14 -->
+    <div class="q-card adv">
+      <div class="q-num">NQ14 · 応用 ｜ 総合識別</div>
+      <div class="q-text">空所に最も適切な語（who / whose / that / why / 省略）を入れなさい。<br>
+        a) Tell me the reason <span class="blank">　　　</span> you were absent.<br>
+        b) People <span class="blank">　　　</span> goals are clear tend to succeed.<br>
+        c) This is the only solution <span class="blank">　　　</span> works.<br>
+        d) The laptop <span class="blank">　　　</span> I lent you is broken.
+      </div>
+      <div class="q-ja">a〜d の空所を埋めなさい。</div>
+      <details><summary>▼ 答えを見る</summary>
+        <div class="answer-box">
+          a) <em>why</em>（先行詞 reason ＋関係副詞 why）<br>
+          b) <em>whose</em>（People's goals → whose goals、所有格）<br>
+          c) <em>that</em>（先行詞に the only がつく → that 推奨。works の主語なので省略不可）<br>
+          d) <em>（省略可 / that）</em>（lent の目的語 → 目的格なので省略可）<br>
+          <span class="exp">c) は the only solution which も可だが that が自然。d) は省略が最も口語的。</span>
+        </div>
+      </details>
+    </div>
+
+    <!-- NQ15 -->
+    <div class="q-card adv">
+      <div class="q-num">NQ15 · 応用 ｜ 総合英作文</div>
+      <div class="q-text">（英訳せよ）</div>
+      <div class="q-ja">彼女が昨年入社した会社は、名前が世界中で知られている企業だ。</div>
+      <details><summary>▼ 答えを見る</summary>
+        <div class="answer-box">The company <em>（that）</em> she joined last year is one <em>whose</em> name is known around the world.<br>
+        または：The company she joined last year has a name <em>that</em> is known all over the world.<br>
+        <span class="exp">①「彼女が入社した会社」= 目的格 that（省略可）　②「名前が知られている」= 所有格 whose name。2つの関係詞を組み合わせる高度な構文。</span></div>
+      </details>
+    </div>
+  </div>
+
   <!-- Summary -->
   <div class="rule-card" style="border-left-color: var(--gold2); margin-top: 20px;">
-    <h3>全問題 得点の目安（合計55問）</h3>
+    <h3>全問題 得点の目安（合計70問）</h3>
     <p>
       <strong style="color:var(--gold2)">Part 1（穴埋め15問）</strong>：12〜15問 → 上級 ／ 8〜11問 → 中級 ／ 7問以下 → 基礎を復習<br>
       <strong style="color:var(--gold2)">Part 2（書き換え10問）</strong>：8〜10問 → 上級 ／ 5〜7問 → 中級 ／ 4問以下 → 各セクション再読<br>
       <strong style="color:var(--gold2)">Part 3（並べ替え10問）</strong>：9〜10問 → 初級修了 ／ 7〜8問 → もう少し ／ 6問以下 → 基礎から復習<br>
       <strong style="color:var(--gold2)">Part 4（誤文訂正10問）</strong>：8〜10問 → 中上級修了 ／ 5〜7問 → まずまず ／ 4問以下 → Part 3 から再挑戦<br>
-      <strong style="color:var(--gold2)">Part 5（英作文10問）</strong>：8〜10問 → 上級クリア ／ 5〜7問 → 継続練習 ／ 4問以下 → 全セクションの解説を熟読
+      <strong style="color:var(--gold2)">Part 5（英作文10問）</strong>：8〜10問 → 上級クリア ／ 5〜7問 → 継続練習 ／ 4問以下 → 全セクションの解説を熟読<br>
+      <strong style="color:var(--gold2)">Part 6（新単元15問）</strong>：12〜15問 → 全単元マスター ／ 8〜11問 → 定着中 ／ 7問以下 → Who/That/Whose/Why/省略を再読
     </p>
   </div>
 </section>
