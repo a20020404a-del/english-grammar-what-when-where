@@ -388,6 +388,48 @@
   /* ─── SUB-HEADING ────────────────────────────────── */
   .sub-h { font-size: 16px; font-weight: 700; margin: 28px 0 12px; color: var(--navy); border-left: 4px solid var(--gold); padding-left: 10px; }
 
+  /* ─── TRANSLATION EXERCISE ───────────────────────── */
+  .tr-section {
+    background: linear-gradient(135deg, #0d1b2a 0%, #1e2f45 100%);
+    border-radius: 12px;
+    padding: 22px 24px 18px;
+    margin-top: 32px;
+    margin-bottom: 8px;
+    border: 1px solid rgba(201,168,76,.25);
+  }
+  .tr-section h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    color: var(--gold2);
+    margin-bottom: 4px;
+  }
+  .tr-section .tr-note { font-size: 12px; color: var(--muted); margin-bottom: 16px; }
+  .tr-item {
+    background: rgba(255,255,255,.05);
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin-bottom: 10px;
+    border-left: 3px solid var(--gold);
+  }
+  .tr-item:last-child { margin-bottom: 0; }
+  .tr-num { font-size: 11px; font-weight: 700; color: var(--muted); letter-spacing: .1em; margin-bottom: 5px; text-transform: uppercase; }
+  .tr-ja { color: var(--cream); font-size: 14px; line-height: 1.7; margin-bottom: 8px; }
+  .tr-hint { font-size: 12px; color: var(--muted); margin-bottom: 8px; }
+  .tr-item details summary { color: var(--gold); font-size: 12px; }
+  .tr-item details[open] summary { color: var(--gold2); }
+  .tr-ans {
+    background: rgba(0,0,0,.3);
+    border-radius: 5px;
+    padding: 10px 14px;
+    margin-top: 8px;
+    font-family: 'Fira Code', monospace;
+    font-size: 13px;
+    color: var(--cream);
+    line-height: 1.7;
+  }
+  .tr-ans em { color: var(--gold2); font-style: normal; font-weight: 700; }
+  .tr-ans .tr-exp { display: block; font-size: 11px; color: #8ab4cc; margin-top: 4px; }
+
   /* ─── GRID LAYOUT ────────────────────────────────── */
   .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
   @media (max-width: 600px) { .grid-2 { grid-template-columns: 1fr; } }
@@ -542,6 +584,51 @@
     ✓ <code style="font-family:'Fira Code',monospace">I have a friend <u>who</u> speaks Chinese.</code><br><br>
     先行詞が人なら必ず <em>who</em> を使います。ペットや動物は which / that どちらも可。
   </div>
+
+  <div class="tr-section">
+    <h4>📝 初級英作文チャレンジ — Who / Whom</h4>
+    <div class="tr-note">日本語を英語に直しなさい。( ) 内はヒント。</div>
+    <div class="tr-item">
+      <div class="tr-num">① 基礎</div>
+      <div class="tr-ja">私にはピアノが弾ける友達がいる。</div>
+      <div class="tr-hint">ヒント：I have a friend …</div>
+      <details><summary>▼ 答えを見る</summary>
+        <div class="tr-ans">I have a friend <em>who</em> can play the piano.<br><span class="tr-exp">friend（人）が先行詞。who が can play の主語になっている。</span></div>
+      </details>
+    </div>
+    <div class="tr-item">
+      <div class="tr-num">② 基礎</div>
+      <div class="tr-ja">私を助けてくれた女性はとても親切だった。</div>
+      <div class="tr-hint">ヒント：The woman … was very kind.</div>
+      <details><summary>▼ 答えを見る</summary>
+        <div class="tr-ans">The woman <em>who</em> helped me was very kind.<br><span class="tr-exp">who が helped の主語。先行詞 woman は人なので who を使う。</span></div>
+      </details>
+    </div>
+    <div class="tr-item">
+      <div class="tr-num">③ 基礎</div>
+      <div class="tr-ja">英語を話す人を知っていますか？</div>
+      <div class="tr-hint">ヒント：Do you know anyone …</div>
+      <details><summary>▼ 答えを見る</summary>
+        <div class="tr-ans">Do you know anyone <em>who</em> speaks English?<br><span class="tr-exp">anyone（人）+ who。speaks の主語として機能。</span></div>
+      </details>
+    </div>
+    <div class="tr-item">
+      <div class="tr-num">④ 基礎</div>
+      <div class="tr-ja">昨日あなたに電話してきた男性は私の上司です。</div>
+      <div class="tr-hint">ヒント：The man … is my boss.</div>
+      <details><summary>▼ 答えを見る</summary>
+        <div class="tr-ans">The man <em>who</em> called you yesterday is my boss.<br><span class="tr-exp">man（人）+ who。called の主語。</span></div>
+      </details>
+    </div>
+    <div class="tr-item">
+      <div class="tr-num">⑤ 中級</div>
+      <div class="tr-ja">彼女は私が最も尊敬している先生だ。</div>
+      <div class="tr-hint">ヒント：She is the teacher … / respect の目的語が欠ける</div>
+      <details><summary>▼ 答えを見る</summary>
+        <div class="tr-ans">She is the teacher <em>who(m)</em> I respect the most.<br><span class="tr-exp">目的語の位置 → whom（フォーマル）または who（口語）どちらも可。省略も可。</span></div>
+      </details>
+    </div>
+  </div>
 </section>
 
 <!-- ─── THAT ─── -->
@@ -638,6 +725,43 @@
     関係代名詞 that：<code style="font-family:'Fira Code',monospace">The book <u>that</u> I read was good.</code> → 後ろが <strong>不完全な文</strong>（read の目的語欠如）<br>
     判断基準：後ろの文が完全かどうかを確認しましょう。
   </div>
+
+  <div class="tr-section">
+    <h4>📝 初級英作文チャレンジ — That</h4>
+    <div class="tr-note">日本語を英語に直しなさい。</div>
+    <div class="tr-item">
+      <div class="tr-num">① 基礎</div>
+      <div class="tr-ja">これは私が今まで食べた中で一番おいしい寿司だ。</div>
+      <div class="tr-hint">ヒント：This is the best sushi …（最上級→ that 推奨）</div>
+      <details><summary>▼ 答えを見る</summary>
+        <div class="tr-ans">This is the best sushi <em>that</em> I have ever eaten.<br><span class="tr-exp">最上級 best がついているので that が推奨される。</span></div>
+      </details>
+    </div>
+    <div class="tr-item">
+      <div class="tr-num">② 基礎</div>
+      <div class="tr-ja">机の上にある本を取ってください。</div>
+      <div class="tr-hint">ヒント：Please hand me the book …</div>
+      <details><summary>▼ 答えを見る</summary>
+        <div class="tr-ans">Please hand me the book <em>that</em> is on the desk.<br><span class="tr-exp">that が is の主語（主格）→ 省略不可。which でも可。</span></div>
+      </details>
+    </div>
+    <div class="tr-item">
+      <div class="tr-num">③ 基礎</div>
+      <div class="tr-ja">彼が唯一信頼する人は彼の母だ。</div>
+      <div class="tr-hint">ヒント：The only person …（the only → that 推奨）</div>
+      <details><summary>▼ 答えを見る</summary>
+        <div class="tr-ans">The only person <em>that</em> he trusts is his mother.<br><span class="tr-exp">the only がつくので that 推奨。trusts の目的語が欠けた不完全な文。</span></div>
+      </details>
+    </div>
+    <div class="tr-item">
+      <div class="tr-num">④ 基礎</div>
+      <div class="tr-ja">私が持っているものはすべてあなたにあげます。</div>
+      <div class="tr-hint">ヒント：Everything … I'll give you.</div>
+      <details><summary>▼ 答えを見る</summary>
+        <div class="tr-ans">Everything <em>that</em> I have, I'll give you.<br><span class="tr-exp">Everything（先行詞）+ that（推奨）。have の目的語が欠けた不完全な文。</span></div>
+      </details>
+    </div>
+  </div>
 </section>
 
 <!-- ─── WHOSE ─── -->
@@ -727,6 +851,43 @@
     <em>whose</em> = 所有格の関係代名詞 → <code style="font-family:'Fira Code',monospace">the man <u>whose</u> car was stolen</code><br>
     <em>who's</em> = who is / who has の短縮形 → <code style="font-family:'Fira Code',monospace"><u>Who's</u> coming to the party?</code><br>
     発音は同じですが意味と用法がまったく異なります。
+  </div>
+
+  <div class="tr-section">
+    <h4>📝 初級英作文チャレンジ — Whose</h4>
+    <div class="tr-note">日本語を英語に直しなさい。</div>
+    <div class="tr-item">
+      <div class="tr-num">① 基礎</div>
+      <div class="tr-ja">私は目が大きい犬を飼っている。</div>
+      <div class="tr-hint">ヒント：I have a dog …（「犬の目」→ whose eyes）</div>
+      <details><summary>▼ 答えを見る</summary>
+        <div class="tr-ans">I have a dog <em>whose</em> eyes are big.<br><span class="tr-exp">「その犬の目 = its eyes」→ 所有格 whose で接続。whose + 名詞が続く。</span></div>
+      </details>
+    </div>
+    <div class="tr-item">
+      <div class="tr-num">② 基礎</div>
+      <div class="tr-ja">彼女は名前が世界中で知られている歌手だ。</div>
+      <div class="tr-hint">ヒント：She is a singer …（「歌手の名前」→ whose name）</div>
+      <details><summary>▼ 答えを見る</summary>
+        <div class="tr-ans">She is a singer <em>whose</em> name is known all over the world.<br><span class="tr-exp">whose name = her name。もの（name）を先行詞にとる whose。</span></div>
+      </details>
+    </div>
+    <div class="tr-item">
+      <div class="tr-num">③ 基礎</div>
+      <div class="tr-ja">私は屋根が赤い家に住んでいます。</div>
+      <div class="tr-hint">ヒント：I live in a house …（「家の屋根」→ whose roof）</div>
+      <details><summary>▼ 答えを見る</summary>
+        <div class="tr-ans">I live in a house <em>whose</em> roof is red.<br><span class="tr-exp">whose roof = its roof。無生物にも whose が使える。</span></div>
+      </details>
+    </div>
+    <div class="tr-item">
+      <div class="tr-num">④ 中級</div>
+      <div class="tr-ja">私はビジョンが明確な会社で働きたい。</div>
+      <div class="tr-hint">ヒント：I want to work for a company …</div>
+      <details><summary>▼ 答えを見る</summary>
+        <div class="tr-ans">I want to work for a company <em>whose</em> vision is clear.<br><span class="tr-exp">「会社のビジョン = its vision」→ whose vision。組織も whose で修飾できる。</span></div>
+      </details>
+    </div>
   </div>
 </section>
 
@@ -818,6 +979,43 @@
     <em>That is <u>because</u> ...</em> = 「なぜなら〜だから」（原因を述べる）<br><br>
     例：I was tired. <em>That is why</em> I went to bed early.（結果：早く寝た）<br>
     例：I went to bed early. <em>That is because</em> I was tired.（理由：疲れていたから）
+  </div>
+
+  <div class="tr-section">
+    <h4>📝 初級英作文チャレンジ — Why</h4>
+    <div class="tr-note">日本語を英語に直しなさい。</div>
+    <div class="tr-item">
+      <div class="tr-num">① 基礎</div>
+      <div class="tr-ja">それが私が英語を勉強している理由だ。</div>
+      <div class="tr-hint">ヒント：That is the reason …</div>
+      <details><summary>▼ 答えを見る</summary>
+        <div class="tr-ans">That is the reason <em>why</em> I study English.<br><span class="tr-exp">= That is why I study English.（reason 省略形も可）</span></div>
+      </details>
+    </div>
+    <div class="tr-item">
+      <div class="tr-num">② 基礎</div>
+      <div class="tr-ja">だから私は東京に来たのだ。</div>
+      <div class="tr-hint">ヒント：That is why …</div>
+      <details><summary>▼ 答えを見る</summary>
+        <div class="tr-ans"><em>That is why</em> I came to Tokyo.<br><span class="tr-exp">「だからこそ〜だ」= That is why …。結果を表す重要フレーズ。</span></div>
+      </details>
+    </div>
+    <div class="tr-item">
+      <div class="tr-num">③ 基礎</div>
+      <div class="tr-ja">彼が遅れた理由を教えてください。</div>
+      <div class="tr-hint">ヒント：Please tell me the reason …</div>
+      <details><summary>▼ 答えを見る</summary>
+        <div class="tr-ans">Please tell me the reason <em>why</em> he was late.<br><span class="tr-exp">= Please tell me why he was late.（reason 省略も自然）</span></div>
+      </details>
+    </div>
+    <div class="tr-item">
+      <div class="tr-num">④ 基礎</div>
+      <div class="tr-ja">なぜ彼女が泣いているか分からない。</div>
+      <div class="tr-hint">ヒント：I don't know …（間接疑問文）</div>
+      <details><summary>▼ 答えを見る</summary>
+        <div class="tr-ans">I don't know <em>why</em> she is crying.<br><span class="tr-exp">間接疑問文（名詞節）。語順は平叙文のまま S + V。</span></div>
+      </details>
+    </div>
   </div>
 </section>
 
@@ -915,6 +1113,43 @@
       <div class="ja-sent">今あなたが身につけているスキルは一生役立つだろう。</div>
     </li>
   </ul>
+
+  <div class="tr-section">
+    <h4>📝 初級英作文チャレンジ — 省略</h4>
+    <div class="tr-note">日本語を英語に直しなさい。省略できる場合は（　）で示すこと。</div>
+    <div class="tr-item">
+      <div class="tr-num">① 基礎</div>
+      <div class="tr-ja">昨日買った本はとても面白かった。</div>
+      <div class="tr-hint">ヒント：The book … was very interesting.</div>
+      <details><summary>▼ 答えを見る</summary>
+        <div class="tr-ans">The book <em>(that)</em> I bought yesterday was very interesting.<br><span class="tr-exp">bought の目的語 → 目的格 that は省略可。</span></div>
+      </details>
+    </div>
+    <div class="tr-item">
+      <div class="tr-num">② 基礎</div>
+      <div class="tr-ja">彼女が作ったケーキはとてもおいしかった。</div>
+      <div class="tr-hint">ヒント：The cake … was very delicious.</div>
+      <details><summary>▼ 答えを見る</summary>
+        <div class="tr-ans">The cake <em>(that)</em> she made was very delicious.<br><span class="tr-exp">made の目的語 → 省略可。「she made」が S+V の完全な形で後に続く。</span></div>
+      </details>
+    </div>
+    <div class="tr-item">
+      <div class="tr-num">③ 基礎</div>
+      <div class="tr-ja">私が昨日会った男性はとても面白い人だった。（省略形で）</div>
+      <div class="tr-hint">ヒント：The man … was very interesting.</div>
+      <details><summary>▼ 答えを見る</summary>
+        <div class="tr-ans">The man I met yesterday was very interesting.<br><span class="tr-exp">who(m)/that を省略した自然な口語表現。met の目的語 → 省略可。</span></div>
+      </details>
+    </div>
+    <div class="tr-item">
+      <div class="tr-num">④ 中級</div>
+      <div class="tr-ja">今朝届いたメールは重要だった。（省略できる？）</div>
+      <div class="tr-hint">ヒント：The email … was important.</div>
+      <details><summary>▼ 答えを見る</summary>
+        <div class="tr-ans">The email <em>that</em> arrived this morning was important.<br><span class="tr-exp">that = arrived の主語（主格）→ 省略不可。that を取ると文が崩れる。</span></div>
+      </details>
+    </div>
+  </div>
 </section>
 
 <section id="what" class="tab-panel">
@@ -1028,6 +1263,43 @@
     ✓ <code style="font-family:'Fira Code',monospace">This is <u>the thing that</u> I wanted.</code><br>
     what 自体が「先行詞＋関係代名詞」の働きをするため、先行詞は不要です。
   </div>
+
+  <div class="tr-section">
+    <h4>📝 初級英作文チャレンジ — What</h4>
+    <div class="tr-note">日本語を英語に直しなさい。</div>
+    <div class="tr-item">
+      <div class="tr-num">① 基礎</div>
+      <div class="tr-ja">彼が言ったことは正しい。</div>
+      <div class="tr-hint">ヒント：What … is right.</div>
+      <details><summary>▼ 答えを見る</summary>
+        <div class="tr-ans"><em>What</em> he said is right.<br><span class="tr-exp">What he said = 主語の名詞節。= The thing that he said is right.</span></div>
+      </details>
+    </div>
+    <div class="tr-item">
+      <div class="tr-num">② 基礎</div>
+      <div class="tr-ja">これが私の欲しいものだ。</div>
+      <div class="tr-hint">ヒント：This is what …</div>
+      <details><summary>▼ 答えを見る</summary>
+        <div class="tr-ans">This is <em>what</em> I want.<br><span class="tr-exp">補語の位置に名詞節 what I want。want の目的語が欠けた不完全な文。</span></div>
+      </details>
+    </div>
+    <div class="tr-item">
+      <div class="tr-num">③ 基礎</div>
+      <div class="tr-ja">大切なことは努力することだ。</div>
+      <div class="tr-hint">ヒント：What matters …</div>
+      <details><summary>▼ 答えを見る</summary>
+        <div class="tr-ans"><em>What</em> matters is effort.<br><span class="tr-exp">What matters = 「重要なこと」。what が主語の名詞節として機能。</span></div>
+      </details>
+    </div>
+    <div class="tr-item">
+      <div class="tr-num">④ 基礎</div>
+      <div class="tr-ja">私は彼女が何を考えているか分からない。</div>
+      <div class="tr-hint">ヒント：I don't understand …</div>
+      <details><summary>▼ 答えを見る</summary>
+        <div class="tr-ans">I don't understand <em>what</em> she is thinking.<br><span class="tr-exp">understand の目的語として機能する名詞節。thinking の目的語が欠けている。</span></div>
+      </details>
+    </div>
+  </div>
 </section>
 
 <!-- ────────────────────────────────────────────────
@@ -1137,6 +1409,43 @@
     ✓ <code style="font-family:'Fira Code',monospace">the day <u>that</u> he left</code><br>
     ✓ <code style="font-family:'Fira Code',monospace">the day <u>（省略）</u> he left</code>（特に口語）<br>
     ただし <em>when</em> は副詞的機能が明確なため、書き言葉では推奨されます。
+  </div>
+
+  <div class="tr-section">
+    <h4>📝 初級英作文チャレンジ — When</h4>
+    <div class="tr-note">日本語を英語に直しなさい。</div>
+    <div class="tr-item">
+      <div class="tr-num">① 基礎</div>
+      <div class="tr-ja">電話が鳴ったとき、私は食事中だった。</div>
+      <div class="tr-hint">ヒント：I was eating …</div>
+      <details><summary>▼ 答えを見る</summary>
+        <div class="tr-ans">I was eating <em>when</em> the phone rang.<br><span class="tr-exp">接続詞 when「〜したとき」。過去進行形と過去形の組み合わせが自然。</span></div>
+      </details>
+    </div>
+    <div class="tr-item">
+      <div class="tr-num">② 基礎</div>
+      <div class="tr-ja">着いたら電話してください。</div>
+      <div class="tr-hint">ヒント：Call me …（未来のことでも when の後は現在形）</div>
+      <details><summary>▼ 答えを見る</summary>
+        <div class="tr-ans">Call me <em>when</em> you arrive.<br><span class="tr-exp">時を表す副詞節では未来でも現在形を使う。× when you will arrive。</span></div>
+      </details>
+    </div>
+    <div class="tr-item">
+      <div class="tr-num">③ 基礎</div>
+      <div class="tr-ja">私が生まれた年は1990年だ。</div>
+      <div class="tr-hint">ヒント：The year … is 1990.</div>
+      <details><summary>▼ 答えを見る</summary>
+        <div class="tr-ans">The year <em>when</em> I was born is 1990.<br><span class="tr-exp">先行詞 year（時）+ 関係副詞 when。= The year in which I was born。</span></div>
+      </details>
+    </div>
+    <div class="tr-item">
+      <div class="tr-num">④ 基礎</div>
+      <div class="tr-ja">子供だった頃のことを覚えていますか？</div>
+      <div class="tr-hint">ヒント：Do you remember …</div>
+      <details><summary>▼ 答えを見る</summary>
+        <div class="tr-ans">Do you remember <em>when</em> you were a child?<br><span class="tr-exp">remember の目的語として機能する名詞節 when you were a child。</span></div>
+      </details>
+    </div>
   </div>
 </section>
 
@@ -1251,6 +1560,43 @@
     ✓ <code style="font-family:'Fira Code',monospace">the city <u>where</u> I was born</code>（よりスマート）<br>
     ✓ <code style="font-family:'Fira Code',monospace">the city <u>in which</u> I was born</code>（フォーマル）<br><br>
     <em>where</em> を使うと前置詞を書く必要がなく、すっきりとした文になります。
+  </div>
+
+  <div class="tr-section">
+    <h4>📝 初級英作文チャレンジ — Where</h4>
+    <div class="tr-note">日本語を英語に直しなさい。</div>
+    <div class="tr-item">
+      <div class="tr-num">① 基礎</div>
+      <div class="tr-ja">ここが私が育った場所だ。</div>
+      <div class="tr-hint">ヒント：This is the place …</div>
+      <details><summary>▼ 答えを見る</summary>
+        <div class="tr-ans">This is the place <em>where</em> I grew up.<br><span class="tr-exp">先行詞 place（場所）+ 関係副詞 where。または "This is where I grew up."（place 省略）も可。</span></div>
+      </details>
+    </div>
+    <div class="tr-item">
+      <div class="tr-num">② 基礎</div>
+      <div class="tr-ja">彼がどこに住んでいるか知っていますか？</div>
+      <div class="tr-hint">ヒント：Do you know …（間接疑問文）</div>
+      <details><summary>▼ 答えを見る</summary>
+        <div class="tr-ans">Do you know <em>where</em> he lives?<br><span class="tr-exp">間接疑問文。語順は平叙文 he lives（× where does he live）。</span></div>
+      </details>
+    </div>
+    <div class="tr-item">
+      <div class="tr-num">③ 基礎</div>
+      <div class="tr-ja">私は木がたくさんある街に住みたい。</div>
+      <div class="tr-hint">ヒント：I want to live in a city …</div>
+      <details><summary>▼ 答えを見る</summary>
+        <div class="tr-ans">I want to live in a city <em>where</em> there are many trees.<br><span class="tr-exp">先行詞 city（場所）+ 関係副詞 where。後ろは完全な文。</span></div>
+      </details>
+    </div>
+    <div class="tr-item">
+      <div class="tr-num">④ 基礎</div>
+      <div class="tr-ja">そこが彼女が働くオフィスだ。</div>
+      <div class="tr-hint">ヒント：That is the office …</div>
+      <details><summary>▼ 答えを見る</summary>
+        <div class="tr-ans">That is the office <em>where</em> she works.<br><span class="tr-exp">= That is the office in which she works.（前置詞＋which への書き換えも可）</span></div>
+      </details>
+    </div>
   </div>
 </section>
 
@@ -1379,6 +1725,43 @@
       <div class="ja-sent">どちらの求人を受けるか決められない。（which + 名詞 + to 不定詞）</div>
     </li>
   </ul>
+
+  <div class="tr-section">
+    <h4>📝 初級英作文チャレンジ — Which</h4>
+    <div class="tr-note">日本語を英語に直しなさい。</div>
+    <div class="tr-item">
+      <div class="tr-num">① 基礎</div>
+      <div class="tr-ja">私が買ったかばんは黒かった。</div>
+      <div class="tr-hint">ヒント：The bag … was black.</div>
+      <details><summary>▼ 答えを見る</summary>
+        <div class="tr-ans">The bag <em>which</em> I bought was black.<br><span class="tr-exp">先行詞 bag（もの）+ 関係代名詞 which。bought の目的語が欠けている。that / 省略も可。</span></div>
+      </details>
+    </div>
+    <div class="tr-item">
+      <div class="tr-num">② 基礎</div>
+      <div class="tr-ja">彼は新しいスマートフォンを買った。それはとても便利だ。</div>
+      <div class="tr-hint">ヒント：He bought a new smartphone, …（非制限用法）</div>
+      <details><summary>▼ 答えを見る</summary>
+        <div class="tr-ans">He bought a new smartphone, <em>which</em> is very useful.<br><span class="tr-exp">カンマ＋which（非制限用法）。前の文全体を補足する。カンマありなので that は不可。</span></div>
+      </details>
+    </div>
+    <div class="tr-item">
+      <div class="tr-num">③ 基礎</div>
+      <div class="tr-ja">どちらのかばんを選べばいいか分からない。</div>
+      <div class="tr-hint">ヒント：I don't know …（間接疑問文）</div>
+      <details><summary>▼ 答えを見る</summary>
+        <div class="tr-ans">I don't know <em>which</em> bag to choose.<br><span class="tr-exp">which + 名詞 + to 不定詞。= I don't know which bag I should choose. も可。</span></div>
+      </details>
+    </div>
+    <div class="tr-item">
+      <div class="tr-num">④ 基礎</div>
+      <div class="tr-ja">彼女が選んだドレスはとても美しかった。</div>
+      <div class="tr-hint">ヒント：The dress … was very beautiful.</div>
+      <details><summary>▼ 答えを見る</summary>
+        <div class="tr-ans">The dress <em>which</em> she chose was very beautiful.<br><span class="tr-exp">chose の目的語 → 目的格。that / 省略も同様に可。</span></div>
+      </details>
+    </div>
+  </div>
 </section>
 
 <!-- ────────────────────────────────────────────────
@@ -1492,6 +1875,43 @@
       <div class="ja-sent">彼はチームワークがどれほど重要かを私に示してくれた。</div>
     </li>
   </ul>
+
+  <div class="tr-section">
+    <h4>📝 初級英作文チャレンジ — How</h4>
+    <div class="tr-note">日本語を英語に直しなさい。</div>
+    <div class="tr-item">
+      <div class="tr-num">① 基礎</div>
+      <div class="tr-ja">このアプリの使い方を教えてください。</div>
+      <div class="tr-hint">ヒント：Tell me …（how to + 動詞）</div>
+      <details><summary>▼ 答えを見る</summary>
+        <div class="tr-ans">Tell me <em>how to use</em> this app.<br><span class="tr-exp">how to + 動詞原形 = 「〜の仕方・方法」。自然な日常表現。</span></div>
+      </details>
+    </div>
+    <div class="tr-item">
+      <div class="tr-num">② 基礎</div>
+      <div class="tr-ja">彼がどうやってその問題を解いたか見せてください。</div>
+      <div class="tr-hint">ヒント：Show me …（間接疑問文）</div>
+      <details><summary>▼ 答えを見る</summary>
+        <div class="tr-ans">Show me <em>how</em> he solved the problem.<br><span class="tr-exp">間接疑問文。語順は平叙文 he solved（× how did he solve）。</span></div>
+      </details>
+    </div>
+    <div class="tr-item">
+      <div class="tr-num">③ 基礎</div>
+      <div class="tr-ja">彼女がどれほど一生懸命働いているかが分かる。</div>
+      <div class="tr-hint">ヒント：You can see …</div>
+      <details><summary>▼ 答えを見る</summary>
+        <div class="tr-ans">You can see <em>how hard</em> she works.<br><span class="tr-exp">how + 副詞（hard）+ S + V。「どれほど〜か」の間接疑問。</span></div>
+      </details>
+    </div>
+    <div class="tr-item">
+      <div class="tr-num">④ 基礎</div>
+      <div class="tr-ja">料理の仕方を学びたい。</div>
+      <div class="tr-hint">ヒント：I want to learn …</div>
+      <details><summary>▼ 答えを見る</summary>
+        <div class="tr-ans">I want to learn <em>how to cook</em>.<br><span class="tr-exp">how to + 動詞原形。「〜の方法を学ぶ」の定番表現。</span></div>
+      </details>
+    </div>
+  </div>
 </section>
 
 <!-- ────────────────────────────────────────────────
@@ -2289,6 +2709,152 @@
     </div>
   </div>
 
+  <!-- PART 7: Random Translation -->
+  <div class="quiz-section">
+    <h3>Part 7 — 【初級】ランダム英作文（全15問）</h3>
+    <p style="font-size:13px; color:#666; margin-bottom:20px;">全項目からランダムに出題します。何の関係詞を使うかを自分で判断してください。</p>
+
+    <div class="q-card basic">
+      <div class="q-num">TR1 · Who</div>
+      <div class="q-text">（英訳せよ）</div>
+      <div class="q-ja">私には大阪に住んでいる姉がいる。</div>
+      <details><summary>▼ 答えを見る</summary>
+        <div class="answer-box">I have a sister <em>who</em> lives in Osaka.<br><span class="exp">先行詞 sister（人）→ who。lives の主語。</span></div>
+      </details>
+    </div>
+
+    <div class="q-card basic">
+      <div class="q-num">TR2 · Where</div>
+      <div class="q-text">（英訳せよ）</div>
+      <div class="q-ja">ここが私が初めて彼に会った場所だ。</div>
+      <details><summary>▼ 答えを見る</summary>
+        <div class="answer-box">This is the place <em>where</em> I first met him.<br><span class="exp">先行詞 place（場所）+ where。= This is where I first met him. も可。</span></div>
+      </details>
+    </div>
+
+    <div class="q-card basic">
+      <div class="q-num">TR3 · What</div>
+      <div class="q-text">（英訳せよ）</div>
+      <div class="q-ja">今必要なのは休息だ。</div>
+      <details><summary>▼ 答えを見る</summary>
+        <div class="answer-box"><em>What</em> I need now is rest.<br><span class="exp">What I need now = 主語の名詞節。need の目的語が欠けた不完全な文。</span></div>
+      </details>
+    </div>
+
+    <div class="q-card basic">
+      <div class="q-num">TR4 · That（最上級）</div>
+      <div class="q-text">（英訳せよ）</div>
+      <div class="q-ja">彼は私が今まで会った中で最も面白い人だ。</div>
+      <details><summary>▼ 答えを見る</summary>
+        <div class="answer-box">He is the most interesting person <em>that</em> I have ever met.<br><span class="exp">最上級 most interesting → that 推奨。met の目的語欠如。</span></div>
+      </details>
+    </div>
+
+    <div class="q-card basic">
+      <div class="q-num">TR5 · Whose</div>
+      <div class="q-text">（英訳せよ）</div>
+      <div class="q-ja">彼は声がとても美しい歌手だ。</div>
+      <details><summary>▼ 答えを見る</summary>
+        <div class="answer-box">He is a singer <em>whose</em> voice is very beautiful.<br><span class="exp">「歌手の声 = his voice」→ whose voice。</span></div>
+      </details>
+    </div>
+
+    <div class="q-card basic">
+      <div class="q-num">TR6 · How</div>
+      <div class="q-text">（英訳せよ）</div>
+      <div class="q-ja">泳ぎ方を教えてもらえますか？</div>
+      <details><summary>▼ 答えを見る</summary>
+        <div class="answer-box">Could you teach me <em>how to swim</em>?<br><span class="exp">how to + 動詞原形 = 「〜の仕方」。teach me how to swim で自然な表現。</span></div>
+      </details>
+    </div>
+
+    <div class="q-card basic">
+      <div class="q-num">TR7 · When</div>
+      <div class="q-text">（英訳せよ）</div>
+      <div class="q-ja">私が初めて海外に行った年は2010年だった。</div>
+      <details><summary>▼ 答えを見る</summary>
+        <div class="answer-box">The year <em>when</em> I first went abroad was 2010.<br><span class="exp">先行詞 year（時）+ 関係副詞 when。</span></div>
+      </details>
+    </div>
+
+    <div class="q-card basic">
+      <div class="q-num">TR8 · Why</div>
+      <div class="q-text">（英訳せよ）</div>
+      <div class="q-ja">だからこそ私は毎日勉強している。</div>
+      <details><summary>▼ 答えを見る</summary>
+        <div class="answer-box"><em>That is why</em> I study every day.<br><span class="exp">「だからこそ〜だ」= That is why …。重要な慣用表現。</span></div>
+      </details>
+    </div>
+
+    <div class="q-card basic">
+      <div class="q-num">TR9 · Which（非制限）</div>
+      <div class="q-text">（英訳せよ）</div>
+      <div class="q-ja">彼女は試合に勝った。そのことはチーム全員を喜ばせた。</div>
+      <details><summary>▼ 答えを見る</summary>
+        <div class="answer-box">She won the match, <em>which</em> made everyone on the team happy.<br><span class="exp">カンマ＋which で前の文全体を先行詞にとる非制限用法。that は不可。</span></div>
+      </details>
+    </div>
+
+    <div class="q-card basic">
+      <div class="q-num">TR10 · 省略</div>
+      <div class="q-text">（英訳せよ・省略形で）</div>
+      <div class="q-ja">あなたが送ってくれたメッセージは私を元気づけた。</div>
+      <details><summary>▼ 答えを見る</summary>
+        <div class="answer-box">The message <em>（you sent me）</em> cheered me up.<br><span class="exp">that/which を省略した接触節。sent の目的語欠如 → 目的格 → 省略可。</span></div>
+      </details>
+    </div>
+
+    <div class="q-card mid">
+      <div class="q-num">TR11 · Who（非制限）</div>
+      <div class="q-text">（英訳せよ）</div>
+      <div class="q-ja">私の父は医師で、毎朝ジョギングをしている。</div>
+      <details><summary>▼ 答えを見る</summary>
+        <div class="answer-box">My father, <em>who</em> is a doctor, goes jogging every morning.<br><span class="exp">カンマ＋who（非制限用法）。補足情報を追加する形。</span></div>
+      </details>
+    </div>
+
+    <div class="q-card mid">
+      <div class="q-num">TR12 · What（慣用表現）</div>
+      <div class="q-text">（英訳せよ）</div>
+      <div class="q-ja">さらに悪いことに、彼は謝らなかった。</div>
+      <details><summary>▼ 答えを見る</summary>
+        <div class="answer-box"><em>What is worse</em>, he didn't apologize.<br><span class="exp">What is worse = 「さらに悪いことに」。what + be + 比較級/形容詞の慣用表現。</span></div>
+      </details>
+    </div>
+
+    <div class="q-card mid">
+      <div class="q-num">TR13 · Whose + Where</div>
+      <div class="q-text">（英訳せよ）</div>
+      <div class="q-ja">私はオーナーがフレンドリーなカフェに行きたい。</div>
+      <details><summary>▼ 答えを見る</summary>
+        <div class="answer-box">I want to go to a café <em>whose</em> owner is friendly.<br>または：I want to go to a café <em>where</em> the owner is friendly.<br><span class="exp">whose owner（所有格）または where the owner is friendly（関係副詞）どちらも自然。</span></div>
+      </details>
+    </div>
+
+    <div class="q-card mid">
+      <div class="q-num">TR14 · That（省略） vs. That（省略不可）</div>
+      <div class="q-text">（英訳せよ・2文）</div>
+      <div class="q-ja">① 私が昨日読んだ記事はとても興味深かった。（省略形で）<br>② 昨日届いた荷物はとても重かった。（省略できるか確認）</div>
+      <details><summary>▼ 答えを見る</summary>
+        <div class="answer-box">
+          ① The article I read yesterday was very interesting.<br>
+          <span class="exp">read の目的語 → 目的格 → 省略可。</span><br><br>
+          ② The package <em>that</em> arrived yesterday was very heavy.<br>
+          <span class="exp">arrived の主語 → 主格 → 省略不可。that を取ると文が崩れる。</span>
+        </div>
+      </details>
+    </div>
+
+    <div class="q-card mid">
+      <div class="q-num">TR15 · 総合（全項目から）</div>
+      <div class="q-text">（英訳せよ）</div>
+      <div class="q-ja">これが私がここに来た理由であり、あなたに伝えたいことだ。</div>
+      <details><summary>▼ 答えを見る</summary>
+        <div class="answer-box">This is <em>why</em> I came here, and <em>what</em> I want to tell you.<br><span class="exp">why（理由）と what（伝えたいこと）を and で並列。2つの名詞節を組み合わせた応用構文。</span></div>
+      </details>
+    </div>
+  </div>
+
   <!-- PART 6: New topics Who/That/Whose/Why/Omission -->
   <div class="quiz-section">
     <h3>Part 6 — 【新単元】Who / That / Whose / Why / 省略（全15問）</h3>
@@ -2478,14 +3044,15 @@
 
   <!-- Summary -->
   <div class="rule-card" style="border-left-color: var(--gold2); margin-top: 20px;">
-    <h3>全問題 得点の目安（合計70問）</h3>
+    <h3>全問題 得点の目安（合計85問）</h3>
     <p>
       <strong style="color:var(--gold2)">Part 1（穴埋め15問）</strong>：12〜15問 → 上級 ／ 8〜11問 → 中級 ／ 7問以下 → 基礎を復習<br>
       <strong style="color:var(--gold2)">Part 2（書き換え10問）</strong>：8〜10問 → 上級 ／ 5〜7問 → 中級 ／ 4問以下 → 各セクション再読<br>
       <strong style="color:var(--gold2)">Part 3（並べ替え10問）</strong>：9〜10問 → 初級修了 ／ 7〜8問 → もう少し ／ 6問以下 → 基礎から復習<br>
       <strong style="color:var(--gold2)">Part 4（誤文訂正10問）</strong>：8〜10問 → 中上級修了 ／ 5〜7問 → まずまず ／ 4問以下 → Part 3 から再挑戦<br>
       <strong style="color:var(--gold2)">Part 5（英作文10問）</strong>：8〜10問 → 上級クリア ／ 5〜7問 → 継続練習 ／ 4問以下 → 全セクションの解説を熟読<br>
-      <strong style="color:var(--gold2)">Part 6（新単元15問）</strong>：12〜15問 → 全単元マスター ／ 8〜11問 → 定着中 ／ 7問以下 → Who/That/Whose/Why/省略を再読
+      <strong style="color:var(--gold2)">Part 6（新単元15問）</strong>：12〜15問 → 全単元マスター ／ 8〜11問 → 定着中 ／ 7問以下 → Who/That/Whose/Why/省略を再読<br>
+      <strong style="color:var(--gold2)">Part 7（ランダム英作文15問）</strong>：12〜15問 → 総合力高い ／ 8〜11問 → 定着しつつある ／ 7問以下 → 各セクションの英作文チャレンジから再挑戦
     </p>
   </div>
 </section>
